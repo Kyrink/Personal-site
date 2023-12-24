@@ -1,0 +1,10 @@
+/* Styles.css */
+.animate-aitf {
+    background-image: url('https://i.ibb.co/RDTnNrT/animated-text-fill.png');
+    background-repeat: repeat-y;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: aitf 80s linear infinite;
+}
