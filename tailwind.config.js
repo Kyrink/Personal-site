@@ -12,6 +12,10 @@ module.exports = {
         dimgray: "#4d4d4d",
         gainsboro: "#d9d9d9",
       },
+      opacity: {
+        '15': '0.15',
+        '85': '0.85'
+      },
       backgroundImage: {
         'text-gradient': 'linear-gradient(to right, #A60202, #F9D423)',
       },

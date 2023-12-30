@@ -218,7 +218,7 @@ header a {
   top: 20%;
   width: 500px;
   max-width: 80%;
-  left: 30%;
+  left: 25%;
   transform: translateX(-50%);
   padding: 2%;
   box-sizing: border-box;
@@ -227,13 +227,11 @@ header a {
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
 
 }
-
-
 
 .carousel .list .item .author {
   font-weight: bold;
@@ -282,6 +280,7 @@ header a {
   z-index: 100;
   display: flex;
   gap: 20px;
+
 }
 
 .thumbnail .item {
@@ -289,6 +288,7 @@ header a {
   height: 220px;
   flex-shrink: 0;
   position: relative;
+
 }
 
 .thumbnail .item img {

@@ -4,7 +4,7 @@ import { OrbitControls } from "@react-three/drei";
 import Scene from "../components/Scene";
 import { useNavigate } from "react-router-dom";
 import GlitchingTypingText from "../components/GlitchingTypingText";
-import TextDistortion from "../components/TextDistortion";
+import Spline from '@splinetool/react-spline';
 
 //Makes the laptop float and rotate
 const FloatingAnimation = ({ children, speed = 2, amplitude = 0.2 }) => {
@@ -25,8 +25,6 @@ const FloatingAnimation = ({ children, speed = 2, amplitude = 0.2 }) => {
 
   return <group ref={ref}>{children}</group>;
 };
-
-
 
 
 const Website20Home = () => {
@@ -52,6 +50,7 @@ const Website20Home = () => {
 
   return (
     <div className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
+
       <span
         className="absolute top-[773.1px] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
         id="home-tag"
@@ -69,21 +68,12 @@ const Website20Home = () => {
         }} // Centering the section
         id="rect"
       >
-        <span
-          className="absolute bottom-20 right-[10%] p-[2%] text-sm text-justify font-thin max-w-md sm:max-w-sm glass-effect"
-          id="homepage-description"
-          style={{ maxWidth: '442px', }}
-        >
-          <GlitchingTypingText>
-            Et diam consequat et arcu sit aliquam. Aliquam ipsum elit orci quis
-            tristique mauris consequat quam commodo. Turpis ut sit eleifend
-            habitant pharetra. Quis laoreet ac massa hendrerit varius lacus sem
-            diam dolor.
-          </GlitchingTypingText>
-        </span>
+        {/* <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" /> */}
+
+
         <div className="flex justify-end items-start w-full h-full">
-          <div className="right-100 w-3/4 h-3/4">
-            <Canvas>
+          <div className="  right-100 w-3/4 h-3/4">
+            <Canvas className=" z-0 absolute">
               <perspectiveCamera makeDefault fov={75} position={[0, 0, 5]} />
               <ambientLight color={"white"} intensity={5.5} />
               <pointLight position={[10, 10, 10]} />
@@ -95,28 +85,47 @@ const Website20Home = () => {
               </Suspense>
             </Canvas>
           </div>
+          <Spline className=" absolute" scene="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
+
         </div>
+        <span
+          className="absolute bottom-20 right-[10%] p-[2%] text-sm text-justify font-thin max-w-md sm:max-w-sm fade-in glass-effect"
+          id="homepage-description"
+          style={{ maxWidth: '442px', }}
+        >
+          <GlitchingTypingText>
+            Et diam consequat et arcu sit aliquam. Aliquam ipsum elit orci quis
+            tristique mauris consequat quam commodo. Turpis ut sit eleifend
+            habitant pharetra. Quis laoreet ac massa hendrerit varius lacus sem
+            diam dolor.
+          </GlitchingTypingText>
+        </span>
+
         <section
-          className="absolute top-[11%] left-[12%] w-[460px] h-full overflow-hidden text-left text-51xl gap-[10%] text-white "
+          className="absolute top-[8%] left-[10%] w-[460px] h-full overflow-hidden text-left text-51xl gap-[10%] text-white "
           id="ntns"
         >
-          <h1
-            className="m-0 absolute top-[0px] left-[0px] text-xl font-inherit inline-block"
-            id="name"
-          >
-            <GlitchingTypingText> Kyrin Kalonji
-            </GlitchingTypingText>
-          </h1>
-          <h2
-            className="m-0 absolute top-[13%] left-[25%] text-lg font-inherit inline-block text-orange"
-            id="title"
-          >
-            <GlitchingTypingText
-              startDelay={5000}
-            > Software Engineer
-            </GlitchingTypingText>
-          </h2>
-          <nav className="m-0 relative top-[35%] left-[15%]  w-[180px] flex flex-col items-center justify-start gap-[15px] hover:gap-10px p-[2%] text-right text-md text-white glass-effect" id="init-navigation">
+          <div >
+            <h1
+              className="m-0 absolute top-[0px] left-[0px] text-xl font-inherit  p-[3%] pl-[10%] inline-block"
+              id="name"
+            >
+              <GlitchingTypingText> Kyrin Kalonji
+              </GlitchingTypingText>
+            </h1>
+            <h2
+              className="m-0 absolute top-[15%] left-[31%] text-lg font-inherit inline-block text-orange"
+              id="title"
+            >
+              <GlitchingTypingText
+                startDelay={5000}
+              > Software Engineer
+              </GlitchingTypingText>
+            </h2>
+          </div>
+
+
+          <nav className="m-0 relative top-[37%] left-[15%]  w-[180px] flex flex-col items-start justify-start gap-[15px] hover:gap-10px p-[2%] text-right text-md text-white" id="init-navigation">
             <span className="relative font-thin cursor-pointer hover:text-orange hover:animate-distortAndGrow" id="home-option" onClick={() => handleNavigation('home')}>
               <GlitchingTypingText startDelay={1000} >HOME</GlitchingTypingText>
             </span>
@@ -132,7 +141,7 @@ const Website20Home = () => {
           </nav>
 
           <div
-            className="absolute top-[70%] left-[10%] flex flex-row items-start justify-start gap-[40px]"
+            className="absolute top-[70%] left-[14%] flex flex-row items-start justify-start p-[3%] gap-[40px]"
             id="socials"
           >
             <img

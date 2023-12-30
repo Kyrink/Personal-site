@@ -1,6 +1,8 @@
 import { useCallback } from "react";
 import CircleLanguages from "../components/CircleLanguages";
 import GlitchingTypingText from "../components/GlitchingTypingText";
+import Spline from '@splinetool/react-spline';
+import NeuralNetworkNav from "../components/NeuralNetworkNav";
 
 const Website20AboutMe = () => {
   return (
@@ -20,6 +22,11 @@ const Website20AboutMe = () => {
         }} // Centering the section
         id="rect"
       >
+        <NeuralNetworkNav />
+        {/* <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" /> */}
+        <Spline className=" z-0 absolute"
+          // style={{ pointerEvents: 'none' }} // This allows the mouse events to pass through the Spline component.
+          scene="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
         <section
           className="absolute top-[15%] left-[58%] w-1/2 h-full flex flex-col items-center justify-start gap-[40px] text-left text-lg text-white font-rhapsody"
           id="texts"
@@ -52,12 +59,13 @@ const Website20AboutMe = () => {
 
         </section>
         <h1
-          className="m-0 absolute top-[45%] left-[10%] text-inherit text-lgx  font-inherit"
+          className="m-0 z-2 absolute top-[45%] left-[10%] text-inherit text-lgx  font-inherit"
           id="skill-languages"
         >SKILLS  & LANGUAGES</h1>
-        <div >
+        <div className=" relative z-10000">
           <CircleLanguages />
         </div>
+
       </section>
     </div>
   );

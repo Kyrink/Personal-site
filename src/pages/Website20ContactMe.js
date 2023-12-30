@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Form } from "react-bootstrap";
-import FallingBinary from "../components/FallingBinary";
+import Spline from '@splinetool/react-spline';
+
 
 const Website20ContactMe = () => {
   // State to hold form data
@@ -93,8 +93,9 @@ const Website20ContactMe = () => {
         }} // Centering the section
         id="Contact-page"
       >
-        <FallingBinary />
-        <div className="absolute mb-5 top-[30%] left-[60%] w-[390px] font-mono text-green-400 bg-black p-4 rounded-md animate-fadeIn">
+
+        <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" />
+        <div className="absolute mb-5 top-[30%] left-[60%] w-[390px] font-mono text-green-400 bg-black bg-opacity-50 p-4 rounded-md glass-effect">
           <form onSubmit={handleSubmit} className="flex flex-col whitespace-pre-wrap">
             <span>{`$ Enter your ${stage}:`}</span>
             {stage === 'name' && <span className="text-white mt-2">{'// Type your name and hit Enter'}</span>}
@@ -118,7 +119,7 @@ const Website20ContactMe = () => {
           </div>
         </div>
         <h3
-          className="m-0 absolute top-[30%] left-[10%] text-[20px] font-mono text-green-400 bg-black p-4 rounded-md whitespace-pre-wrap inline-block w-[480px] animate-fadeIn"
+          className="m-0 absolute top-[30%] left-[10%] text-[20px] font-mono text-green-400 bg-black bg-opacity-50 p-4 rounded-md whitespace-pre-wrap inline-block w-[480px] glass-effect animate-fadeIn"
           id="contact-code"
         >
           <p className="mb-4">{'$ '}<span className="text-white">Welcome to my portfolio terminal.</span></p>
@@ -133,7 +134,7 @@ const Website20ContactMe = () => {
                 type="text"
                 value={command}
                 onChange={handleCommandInput}
-                className="flex-1 ml-2 p-2 bg-black text-white border-b-2 border-green-400 focus:outline-none"
+                className="flex-1 ml-2 p-2 bg-black bg-opacity-75 text-white border-b-2 border-green-400  focus:outline-none "
                 placeholder="Your command"
               />
             </div>

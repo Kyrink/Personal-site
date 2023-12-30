@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 const carouselItems = [
-    { imgSrc: "/muse.png", author: "Kyrin Kalonji", title: "MUSE ", topic: "FUCK PLEASE WORK!!!!!", description: "Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu" },
-    { imgSrc: "/reno.png", author: "Kyrin Kalonji", title: "reno", topic: "I HATE MY LIFE", description: "I dont wanna go to work today but someone has to pay the bills" },
+    { imgSrc: "/image/img1.jpg", author: "Kyrin Kalonji", title: "MUSE ", topic: "FUCK PLEASE WORK!!!!!", description: "Tinh ru anh di chay pho, chua kip chay pho thi anhchay mat tieu" },
+    { imgSrc: "/image/img2.jpg", author: "Kyrin Kalonji", title: "reno", topic: "I HATE MY LIFE", description: "I dont wanna go to work today but someone has to pay the bills" },
     { imgSrc: "image/img3.jpg", author: "Kyrin Kalonji", title: "D-BATE", topic: "FUCK THIS SHIT", description: "This project will be the death of me fr" },
-    { imgSrc: "/HuskyBite.png", author: "Kyrin Kalonji", title: "HUSKY BITES", topic: "I QUIT", description: "i love to eat chicked and rice when im hungry" },
+    { imgSrc: "/image/img4.jpg", author: "Kyrin Kalonji", title: "HUSKY BITES", topic: "I QUIT", description: "i love to eat chicked and rice when im hungry" },
 ];
 
 function Carousel() {
@@ -67,36 +67,6 @@ function Carousel() {
                             <div className="topic">{item.topic}</div>
                             <div className="des">{item.description}</div>
                             <div className="buttons">
-                                <button
-                                    className="cursor-pointer [border:none] p-0 absolute flex flex-row items-center justify-start gap-[12px]"
-                                    onClick={() => {/* Add your SEE MORE action here */ }}
-                                >
-                                    <img
-                                        className="relative w-[42.1px] h-[39.7px]"
-                                        alt="Code"
-                                        src="/-icon-github.svg"
-                                    />
-                                    <span
-                                        className="relative text-sm tracking-[0.1em] leading-[234.52%] uppercase font-thin font-helvetica-neue text-white text-center"
-                                    >
-                                        View Code
-                                    </span>
-                                </button>
-                                <button
-                                    className="cursor-pointer [border:none] p-0  absolute flex flex-row items-center justify-start gap-[12px]"
-                                    onClick={() => {/* Add your SUBSCRIBE action here */ }}
-                                >
-                                    <img
-                                        className="relative w-[42.3px] h-[42.3px]"
-                                        alt="Demo"
-                                        src="/-icon-link-2.svg"
-                                    />
-                                    <span
-                                        className="relative text-sm tracking-[0.1em] leading-[234.52%] uppercase font-thin font-helvetica-neue text-black text-center"
-                                    >
-                                        Demo
-                                    </span>
-                                </button>
                             </div>
                         </div>
                     </div>
