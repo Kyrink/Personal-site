@@ -40,37 +40,25 @@ body {
 .circle.grid-layout {
   display: grid;
   grid-template-columns: repeat(6, 75px);
-  /* Set each column to be 75px wide */
   grid-template-rows: repeat(3, 75px);
-  /* Set each row to be 75px tall */
   gap: 10px;
-  /* Adjust the gap as needed */
   justify-content: center;
-  /* Center the grid horizontally */
   align-content: center;
-  /* Center the grid vertically */
+  animation: none;
 }
 
 .circle.grid-layout .circle-span {
   position: relative;
-  /* Change from absolute to relative */
   transform: none;
-  /* Reset transforms for the grid layout */
   opacity: 1;
-  /* Make sure the item is fully visible */
   animation: none;
-  /* Stop any animations when in grid layout */
   width: 75px;
-  /* Set the width of each grid item */
   height: 75px;
-  /* Set the height of each grid item */
   background-color: transparent;
-  /* Optional: remove background color for grid layout */
   box-shadow: none;
-  /* Optional: remove shadow for grid layout */
   border-radius: 0;
-  /* Optional: remove border-radius for grid layout */
 }
+
 
 @keyframes animateCircle {
   0% {
@@ -555,12 +543,12 @@ header a {
 
 /* From https://css.glass */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  animation: particleFadeIn 2s ease-out forwards;
+  /* animation: particleFadeIn 2s ease-out forwards; */
 }
 
 @keyframes particleFadeIn {

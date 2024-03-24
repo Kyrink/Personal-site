@@ -20,7 +20,8 @@ const CircleLanguages = () => {
     'MySQL-Dark',
     'PostgreSQL-Dark',
     'python',
-    'react'
+    'react',
+    'Google-cloud'
   ];
 
   const toggleLayout = () => {
@@ -29,7 +30,7 @@ const CircleLanguages = () => {
 
   return (
     <div
-      className={`relative top-[520px] left-[23%] w-[100px] h-[100px] circle ${isGrid ? 'grid-layout' : ''}`}
+      className={`relative top-[250%] left-[300%] w-[100px] h-[100px] circle ${isGrid ? 'grid-layout' : ''}`}
       onClick={toggleLayout}
     >
       {icons.map((icon, index) => (

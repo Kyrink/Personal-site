@@ -40,6 +40,11 @@ module.exports = {
         },
         // Add other keyframes here
       },
+      variants: {
+        extend: {
+          opacity: ['group-hover'],
+        },
+      },
       animation: {
         'rotate-circle': 'animateCircle 40s linear infinite',
         distortAndGrow: 'distortAndGrow 0.5s infinite',
@@ -69,6 +74,7 @@ module.exports = {
       lgx: "43px",
       "51xl": "70px",
       "4xl": "23px",
+      "3xl": "21px",
       inherit: "inherit",
     },
   },

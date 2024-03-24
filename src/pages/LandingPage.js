@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import CombinedEffect from '../components/CombinedEffect';
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Spline from '@splinetool/react-spline';
 
 
@@ -27,7 +27,7 @@ const LandingPage = () => {
 
   return (
     <div className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
-      <Spline className="z-50 absolute" scene="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
+      {/* <Spline className="z-50 absolute" scene="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" /> */}
       <section
         className="absolute top-1/2 left-1/2 bg-gray box-border w-full h-full overflow-hidden text-left text-50xl text-white border-[1px] border-solid border-white"
         style={{

@@ -1,8 +1,5 @@
-import { useCallback } from "react";
 import CircleLanguages from "../components/CircleLanguages";
-import GlitchingTypingText from "../components/GlitchingTypingText";
 import Spline from '@splinetool/react-spline';
-import NeuralNetworkNav from "../components/NeuralNetworkNav";
 
 const Website20AboutMe = () => {
   return (
@@ -22,49 +19,63 @@ const Website20AboutMe = () => {
         }} // Centering the section
         id="rect"
       >
-        <NeuralNetworkNav />
-        {/* <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" /> */}
         <Spline className=" z-0 absolute"
           // style={{ pointerEvents: 'none' }} // This allows the mouse events to pass through the Spline component.
           scene="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
         <section
-          className="absolute top-[15%] left-[58%] w-1/2 h-full flex flex-col items-center justify-start gap-[40px] text-left text-lg text-white font-rhapsody"
+          className="absolute top-1/4 left-[51%] w-1/2 h-full flex flex-col items-center justify-start gap-[40px] text-left text-lg text-white font-rhapsody"
           id="texts"
         >
-          <div className="relative w-[571px] h-[164px] flex items-center justify-start pt-[22px] pb-[26px] gap-10" id="about-me">
+          <div className="relative h-[164px] flex items-center justify-start pt-[22px] pb-[26px] gap-4" id="about-me">
             <h2 className="absolute transform -rotate-90 left-7 top-1/2 -translate-x-full -translate-y-1/2 text-lg " id="about-header">
               ABOUT ME
             </h2>
-            <span className="ml-5 text-md text-justify max-w-md sm:max-w-sm" id="homepage-description" style={{ maxWidth: '400px' }}>
-              Adipiscing vitae integer nulla iaculis. Pellentesque porttitor velit consequat morbi. Tincidunt pretium adipiscing sit mauris suscipit habitant sapien adipiscing turpis. Et urna facilisis at tincidunt leo.
+            <span className="ml-5 text-md text-justify max-w-md sm:max-w-sm" id="homepage-description" style={{ maxWidth: '480px' }}>
+              Software Engineer, combining creativity and technical skill to create engaging and aesthetically
+              pleasing digital experiences. I blend my skills in software engineering with
+              my passion for UI/UX design to create solutions that are both functional and attractive.
+              Beyond coding, my artistic background in painting & photography adds a unique touch to every project.
             </span>
           </div>
 
-          <div className="relative w-[571px] h-[178px] flex items-center justify-start pt-[31px] pb-[31px] gap-4" id="education">
+          <div className="relative flex items-center justify-start pt-[31px] pb-[31px] gap-4" id="education">
             <h2 className="absolute transform -rotate-90 left-8 top-1/2 -translate-x-full -translate-y-1/2 text-lg font-thin font-rhapsody" id="education-header">
               EDUCATION
             </h2>
-            <span className="ml-5 text-md text-justify max-w-md sm:max-w-sm" id="education-text" style={{ maxWidth: '400px' }}>
-              Pharetra odio metus imperdiet eget et nibh. Dui ut lobortis enim bibendum pretium auctor. Libero quam imperdiet consequat in sit porta parturient non natoque.
+            <span className="ml-5 text-md text-justify max-w-md sm:max-w-sm" id="education-text" style={{ maxWidth: '480px' }}>
+              I'm a recent graduate with a B.Sc in Computer Science at the University of Southern Maine.
+              My academic journey was defined by a deep dive into the bedrock of computing.
+              My coursework spans DSA, Systems Design, Software Engineering,
+              Programming Paradigms, Computing for Data Science, Mathematical Modeling, and Numerical Analysis.
+              This academic foundation equips me to tackle complex software challenges and drive innovations in technology.
             </span>
           </div>
-          <div className="relative w-[571px] h-[145px] flex items-center justify-start gap-4" id="work">
-            <h2 className="absolute transform -rotate-90 left-[-10px] top-1/2 -translate-x-full -translate-y-1/2 text-lg font-thin font-rhapsody" id="work-header">
+        </section>
+        <div
+          className="absolute top-[10%] left-[5%] w-1/2 h-full flex flex-col items-start gap-4 text-left"        >
+          <h1
+            className="m-0 z-2 absolute text-inherit text-lgx  font-inherit"
+            id="skill-languages"
+          >SKILLS  & LANGUAGES</h1>
+          <div className=" relative z-10000"
+            style={{ cursor: 'pointer' }}
+          >
+            <CircleLanguages />
+          </div>
+          <div className="relative top-[40%] left-[10%] h-[145px] flex items-center justify-start gap-3" id="work">
+            <h2 className="absolute transform -rotate-90 left-[-10px] top-1/2 -translate-x-full -translate-y-1/2 text-lg" id="work-header">
               WORK
             </h2>
-            <span className="ml-5 text-md text-justify max-w-md sm:max-w-sm" id="work-text" style={{ maxWidth: '400px' }}>
-              Ultrices sit pellentesque ac fames purus dolor urna. Iaculis porta scelerisque tellus orci tristique diam quis integer neque. Porttitor turpis egestas in sed massa vulputate. Commodo diam tincidunt volutpat morbi.
+            <span className="ml-5 text-md text-justify max-w-md sm:max-w-sm" id="work-text" style={{ maxWidth: '440px' }}>
+              My work spans roles like Quality Engineer at Harvey Performance Co., optimizing processes;
+              Teaching Assistant at the University of Southern Maine, guiding CS students;
+              Subject Matter Expert at Abbott Diagnostics and Manufacturing Specialist at Texas Instruments,
+              focusing on quality and process optimization. Full Resume
             </span>
           </div>
 
-        </section>
-        <h1
-          className="m-0 z-2 absolute top-[45%] left-[10%] text-inherit text-lgx  font-inherit"
-          id="skill-languages"
-        >SKILLS  & LANGUAGES</h1>
-        <div className=" relative z-10000">
-          <CircleLanguages />
         </div>
+
 
       </section>
     </div>

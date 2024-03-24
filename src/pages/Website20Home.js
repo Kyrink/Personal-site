@@ -72,7 +72,7 @@ const Website20Home = () => {
 
 
         <div className="flex justify-end items-start w-full h-full">
-          <div className="  right-100 w-3/4 h-3/4">
+          {/* <div className="  right-100 w-3/4 h-3/4">
             <Canvas className=" z-0 absolute">
               <perspectiveCamera makeDefault fov={75} position={[0, 0, 5]} />
               <ambientLight color={"white"} intensity={5.5} />
@@ -84,14 +84,14 @@ const Website20Home = () => {
                 </FloatingAnimation>
               </Suspense>
             </Canvas>
-          </div>
+          </div> */}
           <Spline className=" absolute" scene="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
 
         </div>
         <span
-          className="absolute bottom-20 right-[10%] p-[2%] text-sm text-justify font-thin max-w-md sm:max-w-sm fade-in glass-effect"
+          className="absolute bottom-20 right-[10%] p-[2%] text-3xl text-justify font-thin max-w-md sm:max-w-sm fade-in glass-effect"
           id="homepage-description"
-          style={{ maxWidth: '442px', }}
+          style={{ maxWidth: '500px', }}
         >
           <GlitchingTypingText>
             Et diam consequat et arcu sit aliquam. Aliquam ipsum elit orci quis
