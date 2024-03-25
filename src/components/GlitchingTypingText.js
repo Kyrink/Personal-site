@@ -23,7 +23,7 @@ const GlitchingTypingText = (props) => {
     const [startTyping, setStartTyping] = useState(false);
     const [typingIntervalID, setTypingIntervalID] = useState(null);
     const [glitchIntervalID, setGlitchIntervalID] = useState(null);
-    const [textVisible, setTextVisible] = useState(true); // New state variable to control text visibility
+    const [textVisible, setTextVisible] = useState(true);
 
 
     const possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?+";

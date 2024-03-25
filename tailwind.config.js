@@ -38,6 +38,7 @@ module.exports = {
           '0%': { backgroundPosition: '0% 50%' },
           '100%': { backgroundPosition: '100% 50%' },
         },
+
         // Add other keyframes here
       },
       variants: {
@@ -71,7 +72,7 @@ module.exports = {
       sm: "14px",
       md: "18px",
       lg: "35px",
-      lgx: "43px",
+      lgx: "40px",
       "51xl": "70px",
       "4xl": "23px",
       "3xl": "21px",

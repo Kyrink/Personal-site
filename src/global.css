@@ -572,3 +572,25 @@ header a {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   }
 }
+
+/* ################## PROJECRT PAGE STYLING ################### */
+
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.normalHeight {
+  transition: height 0.3s ease-in-out;
+  height: 123px;
+}
+
+.expandedHeight {
+  transition: height 0.2s ease-in-out;
+  height: 200px;
+}

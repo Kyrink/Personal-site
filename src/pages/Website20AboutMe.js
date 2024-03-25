@@ -5,7 +5,7 @@ const Website20AboutMe = () => {
   return (
     <div className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
       <span
-        className="absolute top-[773.1px] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
+        className="absolute top-[773.1px] left-[10.3px] font-thin [transform:_rotate(-90deg)] [transform-origin:0_0]"
         id="about-me-tag"
       >{`ABOUT ME & SKILLS`}</span>
       <section

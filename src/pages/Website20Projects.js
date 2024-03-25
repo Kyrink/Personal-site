@@ -1,15 +1,38 @@
 import ProjectBar from "../components/project components/ProjectBar"
+import ProjectModal from "../components/project components/ProjectModal";
+import { useState } from 'react';
 
 const Website20Projects = () => {
 
+  const [currentProject, setCurrentProject] = useState({
+    title: '',
+    description: '',
+    demoLink: '',
+    codeLink: '',
+    imageUrls: []
+  });
+
+
+
+  // State to control the visibility of the modal
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // Function to open the modal
+  const openModal = (projectDetails) => {
+    setCurrentProject(projectDetails);
+    setIsModalOpen(true);
+  };
+  // Function to close the modal
+  const closeModal = () => setIsModalOpen(false);
+
   const SpotifyImageUrls = [
-    "/rectangle-6@2x.png",
+    "/rectangle-7-11@2x.png",
+    "/rectangle-8-11@2x.png",
     "/rectangle-7@2x.png",
     "/rectangle-8@2x.png",
     "/rectangle-9@2x.png",
+    "/rectangle-7-11@2x.png"
   ];
   const SightgasmImageUrls = [
-    "/rectangle-6-2@2x.png",
     "/rectangle-7-2@2x.png",
     "/rectangle-8-3@2x.png",
     "/rectangle-9-3@2x.png",
@@ -19,29 +42,47 @@ const Website20Projects = () => {
     "/rectangle-9-2@2x.png",
   ];
   const MuseImageUrls = [
-    "/rectangle-10@2x.png",
-    "/rectangle-6-1@2x.png",
     "/rectangle-7-1@2x.png",
     "/rectangle-8-1@2x.png",
     "/rectangle-9-1@2x.png",
   ];
+
+  const spotifyProjectDetails = {
+    title: 'Spotify Clone',
+    description: 'Developed a Spotify-like music streaming app using Next.js, React, and Tailwind CSS, featuring secure authentication and database interactions via Supabase and PostgreSQL. Integrated Stripe for subscription services, ensuring a dynamic and responsive user interface.',
+    demoLink: 'https://spotify-clone-demo-link.com', // Use the actual demo link here
+    codeLink: 'https://github.com/Kyrink/Spotify-Clone',
+    imageUrls: SpotifyImageUrls,
+  };
+
+  const projectDetails = [
+    {
+      title: 'Spotify Clone',
+      description: 'A clone of Spotify\'s web Media player built with Typescript, Supabase, and Tailwind CSS.',
+      demoLink: '#', // Replace with actual demo link
+      codeLink: '#', // Replace with actual code link
+      imageUrls: SpotifyImageUrls,
+    },
+    // Add more project details in the same format
+  ];
+
   return (
     <div className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
 
       <span
-        className="absolute top-[773.1px] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
+        className="absolute top-[96%] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
         id="home-tag"
       >
         PROJECTS
       </span>
       <section
-        className="absolute top-1/2 left-1/2 bg-gray box-border w-full h-full overflow-hidden text-left text-50xl text-white  border-[1px] border-solid border-white"
+        className="scrollbar-hide absolute top-1/2 left-1/2 w-full h-full overflow-auto text-left text-50xl text-white border-[1px] border-solid border-white"
         style={{
           transform: 'translate(-50%, -50%)',
           top: '50%',
           left: '50%',
-          width: 'calc(100% - 5rem)', // Subtracting the total margin (left + right)
-          height: 'calc(100% - 5rem)' // Subtracting the total margin (top + bottom)
+          width: 'calc(100% - 5rem)',
+          height: 'calc(100% - 5rem)'
         }}
         id="rect"
       >
@@ -60,14 +101,39 @@ const Website20Projects = () => {
             </span>
           </div>
         </div>
-        <section className="self-stretch flex flex-col items-start justify-start gap-[1px] max-w-full text-center text-18xl-5 text-white font-helvetica-neue">
-          <ProjectBar title="Spotify Clone" imageUrls={SpotifyImageUrls} />
-          <ProjectBar title="Muse" imageUrls={MuseImageUrls} />
-          <ProjectBar title="Snitch Privacy Extension" imageUrls={SnitchImageUrls} />
-          <ProjectBar title="Sightgasm" imageUrls={SightgasmImageUrls} />
-          <ProjectBar title="LinkedOut" imageUrls={SightgasmImageUrls} />
+        <section className="self-stretch flex flex-col items-start justify-start gap-[1px] max-w-full text-center text-18xl-5 text-white font-helvetica-neue overflow-y-auto">
+          <ProjectBar
+            onClick={() => openModal(spotifyProjectDetails)}
+            title={spotifyProjectDetails.title}
+            description={spotifyProjectDetails.description}
+            imageUrls={spotifyProjectDetails.imageUrls}
+          />          <ProjectBar onClick={openModal} title="Muse" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={MuseImageUrls} />
+          <ProjectBar onClick={openModal} title="Snitch Privacy Extension" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={SnitchImageUrls} />
+          <ProjectBar onClick={openModal} title="Sightgasm" description="A curated gallery of stunning photography built using Typescript, GSAP, and tailwind CSS" imageUrls={SightgasmImageUrls} />
+          <ProjectBar onClick={openModal} title="LinkedOut" imageUrls={SightgasmImageUrls} />
+          {isModalOpen && (
+            <ProjectModal
+              projectName={currentProject.title} // or appropriate property
+              projectDescription={currentProject.description} // or appropriate property
+              demoLink={currentProject.demoLink} // or appropriate property
+              codeLink={currentProject.codeLink} // or appropriate property
+              imageUrls={currentProject.imageUrls} // this should be the array of image URLs
+              closeModal={closeModal}
+            />
+          )}
+
         </section>
       </section>
+      <style jsx global>{`
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none; /* for Chrome, Safari, and Opera */
+        }
+
+        .scrollbar-hide {
+          -ms-overflow-style: none; /* for Internet Explorer, Edge */
+          scrollbar-width: none; /* for Firefox */
+        }
+      `}</style>
     </div>
   );
 };
