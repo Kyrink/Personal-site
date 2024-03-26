@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const RandomLetterAnimation = ({ phrase, animationDuration = 20000 }) => { // Increased duration
+const RandomLetterAnimation = ({ phrase, animationDuration = 20000 }) => {
     const [displayedText, setDisplayedText] = useState('');
 
     useEffect(() => {

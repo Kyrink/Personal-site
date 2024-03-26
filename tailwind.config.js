@@ -11,6 +11,8 @@ module.exports = {
         gray: "#0c0c0c",
         dimgray: "#4d4d4d",
         gainsboro: "#d9d9d9",
+        'icon-default': '#ffffff',
+        'icon-hover': '#a60202',
       },
       opacity: {
         '15': '0.15',

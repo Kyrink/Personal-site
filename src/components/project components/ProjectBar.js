@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-const ProjectBar = ({ title, imageUrls, onClick, description }) => {
+const ProjectBar = ({ title, imageUrls, onClick, description, onclick }) => {
   const [isHovered, setIsHovered] = useState(false);
   const animationDuration = 0.5;
   const delayIncrement = 0.1;
   const totalImages = imageUrls.length;
+
 
   const titleStyle = {
     transform: isHovered ? 'scale(1.2)' : 'scale(1) translateY(55%)',
@@ -62,7 +63,7 @@ const ProjectBar = ({ title, imageUrls, onClick, description }) => {
                 opacity: 0,
                 animation: isHovered ? `fadeEffect ${animationDuration}s ease-in-out ${(totalImages - 1 - index) * delayIncrement}s forwards` : 'none',
               }}
-              className="h-[150px] w-[200px] relative rounded-[8.33px] object-cover"
+              className="h-[150px] w-[200px] relative rounded-[2px] object-cover"
               alt=""
               src={imageUrl}
             />

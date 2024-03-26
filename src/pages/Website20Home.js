@@ -110,8 +110,7 @@ const Website20Home = () => {
               className="m-0 absolute top-[0px] left-[0px] text-xl font-inherit  p-[3%] pl-[10%] inline-block"
               id="name"
             >
-              <GlitchingTypingText> Kyrin Kalonji
-              </GlitchingTypingText>
+              <GlitchingTypingText> Kyrin Kalonji</GlitchingTypingText>
             </h1>
             <h2
               className="m-0 absolute top-[15%] left-[31%] text-lg font-inherit inline-block text-orange"
@@ -130,13 +129,13 @@ const Website20Home = () => {
               <GlitchingTypingText startDelay={1000} >HOME</GlitchingTypingText>
             </span>
             <span className="relative font-thin cursor-pointer hover:text-orange hover:animate-distortAndGrow" id="about-option" onClick={() => handleNavigation('about')}>
-              <GlitchingTypingText startDelay={3000}>ABOUT ME</GlitchingTypingText>
+              <GlitchingTypingText startDelay={2000}>ABOUT ME</GlitchingTypingText>
             </span>
             <span className="relative font-thin cursor-pointer hover:text-orange hover:animate-distortAndGrow" id="project-option" onClick={() => handleNavigation('projects')}>
-              <GlitchingTypingText startDelay={5000}>PROJECTS</GlitchingTypingText>
+              <GlitchingTypingText startDelay={3000}>PROJECTS</GlitchingTypingText>
             </span>
             <span className="relative font-thin  cursor-pointer hover:text-orange hover:animate-distortAndGrow" id="contact-option" onClick={() => handleNavigation('contact')}>
-              <GlitchingTypingText startDelay={7000}>CONTACT ME</GlitchingTypingText>
+              <GlitchingTypingText startDelay={4000}>CONTACT ME</GlitchingTypingText>
             </span>
           </nav>
 

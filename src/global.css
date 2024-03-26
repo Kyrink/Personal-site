@@ -594,3 +594,7 @@ header a {
   transition: height 0.2s ease-in-out;
   height: 200px;
 }
+
+.icon-hover-group:hover .icon-color {
+  color: var(--icon-hover-color);
+}

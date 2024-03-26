@@ -18,13 +18,19 @@ const Website20Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   // Function to open the modal
   const openModal = (projectDetails) => {
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
     setCurrentProject(projectDetails);
     setIsModalOpen(true);
   };
+
   // Function to close the modal
-  const closeModal = () => setIsModalOpen(false);
+  const closeModal = () => {
+    document.body.style.overflowY = 'auto'; // Enable scrolling
+    setIsModalOpen(false);
+  };
 
   const SpotifyImageUrls = [
+    "/rectangle-61@2x.png",
     "/rectangle-7-11@2x.png",
     "/rectangle-8-11@2x.png",
     "/rectangle-7@2x.png",
@@ -55,19 +61,9 @@ const Website20Projects = () => {
     imageUrls: SpotifyImageUrls,
   };
 
-  const projectDetails = [
-    {
-      title: 'Spotify Clone',
-      description: 'A clone of Spotify\'s web Media player built with Typescript, Supabase, and Tailwind CSS.',
-      demoLink: '#', // Replace with actual demo link
-      codeLink: '#', // Replace with actual code link
-      imageUrls: SpotifyImageUrls,
-    },
-    // Add more project details in the same format
-  ];
 
   return (
-    <div className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
+    <div className="relative min-h-screen bg-gray w-full  text-left text-white font-rhapsody">
 
       <span
         className="absolute top-[96%] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
@@ -101,13 +97,14 @@ const Website20Projects = () => {
             </span>
           </div>
         </div>
-        <section className="self-stretch flex flex-col items-start justify-start gap-[1px] max-w-full text-center text-18xl-5 text-white font-helvetica-neue overflow-y-auto">
+        <section className="self-stretch flex flex-col items-start justify-start gap-[1px] max-w-full text-center text-18xl-5 text-white font-helvetica-neue">
           <ProjectBar
             onClick={() => openModal(spotifyProjectDetails)}
             title={spotifyProjectDetails.title}
             description={spotifyProjectDetails.description}
             imageUrls={spotifyProjectDetails.imageUrls}
-          />          <ProjectBar onClick={openModal} title="Muse" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={MuseImageUrls} />
+          />
+          <ProjectBar onClick={openModal} title="Muse" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={MuseImageUrls} />
           <ProjectBar onClick={openModal} title="Snitch Privacy Extension" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={SnitchImageUrls} />
           <ProjectBar onClick={openModal} title="Sightgasm" description="A curated gallery of stunning photography built using Typescript, GSAP, and tailwind CSS" imageUrls={SightgasmImageUrls} />
           <ProjectBar onClick={openModal} title="LinkedOut" imageUrls={SightgasmImageUrls} />
@@ -124,16 +121,7 @@ const Website20Projects = () => {
 
         </section>
       </section>
-      <style jsx global>{`
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none; /* for Chrome, Safari, and Opera */
-        }
 
-        .scrollbar-hide {
-          -ms-overflow-style: none; /* for Internet Explorer, Edge */
-          scrollbar-width: none; /* for Firefox */
-        }
-      `}</style>
     </div>
   );
 };

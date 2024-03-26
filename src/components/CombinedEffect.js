@@ -7,7 +7,7 @@ const CombinedEffect = ({ text, onComplete }) => {
 
     const handleTypingCompleted = () => {
         setShowFallingEffect(true);
-        onComplete(); // Call onComplete when the typing is done
+        onComplete();
     };
 
     return (
