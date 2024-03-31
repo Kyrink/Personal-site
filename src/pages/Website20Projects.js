@@ -1,6 +1,8 @@
 import ProjectBar from "../components/project components/ProjectBar"
 import ProjectModal from "../components/project components/ProjectModal";
 import { useState } from 'react';
+import transition from "../transition";
+import FloatingNav from "../components/FloatingNav";
 
 const Website20Projects = () => {
 
@@ -11,8 +13,6 @@ const Website20Projects = () => {
     codeLink: '',
     imageUrls: []
   });
-
-
 
   // State to control the visibility of the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,15 +56,14 @@ const Website20Projects = () => {
   const spotifyProjectDetails = {
     title: 'Spotify Clone',
     description: 'Developed a Spotify-like music streaming app using Next.js, React, and Tailwind CSS, featuring secure authentication and database interactions via Supabase and PostgreSQL. Integrated Stripe for subscription services, ensuring a dynamic and responsive user interface.',
-    demoLink: 'https://spotify-clone-demo-link.com', // Use the actual demo link here
+    demoLink: 'https://spotify-clone-demo-link.com',
     codeLink: 'https://github.com/Kyrink/Spotify-Clone',
     imageUrls: SpotifyImageUrls,
   };
 
 
   return (
-    <div className="relative min-h-screen bg-gray w-full  text-left text-white font-rhapsody">
-
+    <main className="relative min-h-screen bg-gray w-full  text-left text-white font-rhapsody">
       <span
         className="absolute top-[96%] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
         id="home-tag"
@@ -72,7 +71,7 @@ const Website20Projects = () => {
         PROJECTS
       </span>
       <section
-        className="scrollbar-hide absolute top-1/2 left-1/2 w-full h-full overflow-auto text-left text-50xl text-white border-[1px] border-solid border-white"
+        className="scrollable-section absolute top-1/2 left-1/2 w-full h-full overflow-auto text-left text-50xl text-white border-[1px] border-solid border-white"
         style={{
           transform: 'translate(-50%, -50%)',
           top: '50%',
@@ -81,8 +80,7 @@ const Website20Projects = () => {
           height: 'calc(100% - 5rem)'
         }}
         id="rect"
-      >
-        <div className="flex flex-row items-start justify-start py-0 px-8 box-border max-w-full">
+      >        <div className="flex flex-row items-start justify-start py-0 px-8 box-border max-w-full">
           <b className="relative tracking-[0.1em] px-5 py-5 leading-[234.52%] text-51xl uppercase inline-block mq450:text-3xl mq450:leading-[53px] lg:text-11xl lg:leading-[70px]">
             Notable Projects
           </b>
@@ -118,11 +116,10 @@ const Website20Projects = () => {
               closeModal={closeModal}
             />
           )}
-
         </section>
       </section>
 
-    </div>
+    </main>
   );
 };
 

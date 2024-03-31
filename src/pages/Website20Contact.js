@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Spline from '@splinetool/react-spline';
 import emailjs from 'emailjs-com';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+import transition from "../transition";
 
 
-const Website20ContactMe = () => {
+const Website20Contact = () => {
 
   const [command, setCommand] = useState('');
 
@@ -146,7 +150,7 @@ const Website20ContactMe = () => {
   );
 
   return (
-    <div className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white text-[20px] font-mono">
+    <main className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white text-[20px] font-mono">
       <main
         className="absolute top-1/2 left-1/2 bg-gray box-border w-full h-full overflow-hidden text-left text-50xl text-white border-[1px] border-solid border-white"
         style={{
@@ -246,8 +250,8 @@ const Website20ContactMe = () => {
       >
         CONTACT ME
       </h1>
-    </div>
+    </main>
   );
 };
 
-export default Website20ContactMe;
+export default Website20Contact;

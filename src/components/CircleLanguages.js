@@ -1,32 +1,17 @@
+
 import React, { useState } from 'react';
 
 const CircleLanguages = () => {
   const [isGrid, setIsGrid] = useState(false);
 
   const icons = [
-    'adobe-illustrator',
-    'adobe-photoshop',
-    'adobe-premiere-pro',
-    'C++',
-    'css3',
-    'django',
-    'figma',
-    'Firebase-Dark',
-    'flutter',
-    'Github-Dark',
-    'html-5',
-    'java',
-    'javascript',
-    'MySQL-Dark',
-    'PostgreSQL-Dark',
-    'python',
-    'react',
-    'Google-cloud'
+    'adobe-illustrator', 'adobe-photoshop', 'adobe-premiere-pro', 'C++',
+    'css3', 'django', 'figma', 'Firebase-Dark', 'flutter', 'Github-Dark',
+    'html-5', 'java', 'javascript', 'MySQL-Dark', 'PostgreSQL-Dark',
+    'python', 'react', 'Google-cloud'
   ];
 
-  const toggleLayout = () => {
-    setIsGrid(!isGrid);
-  };
+  const toggleLayout = () => setIsGrid(!isGrid);
 
   return (
     <div
@@ -35,8 +20,7 @@ const CircleLanguages = () => {
     >
       {icons.map((icon, index) => (
         <span key={icon} className="circle-span" style={{ '--i': index + 1 }}>
-          {/* Correctly reference each icon in the src attribute */}
-          <img src={`/SVGIcons/${icon}.svg`} alt={icon} className="circle-img" />
+          <img src={`/SVGIcons/${icon}.svg`} alt={icon} loading="lazy" className="circle-img" />
         </span>
       ))}
     </div>

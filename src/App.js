@@ -5,11 +5,13 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import Website20 from "./pages/LandingPage";
-import Website20ContactMe from "./pages/Website20ContactMe";
-import Website20AboutMe from "./pages/Website20AboutMe";
+import Website20 from "./pages/Homepage";
+import Website20Contact from "./pages/Website20Contact";
+import Website20About from "./pages/Website20About";
 import Website20Projects from "./pages/Website20Projects";
 import Website20Home from "./pages/Website20Home";
+import { AnimatePresence } from "framer-motion";
+import transition from "./transition";
 
 function App() {
   const action = useNavigationType();
@@ -35,7 +37,7 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/website20-about-me":
+      case "/website20-about":
         title = "";
         metaDescription = "";
         break;
@@ -64,13 +66,15 @@ function App() {
   }, [pathname]);
 
   return (
-    <Routes>
-      <Route path="/" element={<Website20 />} />
-      <Route path="/website20-contact-me" element={<Website20ContactMe />} />
-      <Route path="/website20-about-me" element={<Website20AboutMe />} />
-      <Route path="/website20-projects" element={<Website20Projects />} />
-      <Route path="/website20-home" element={<Website20Home />} />
-    </Routes>
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Website20 />} />
+        <Route path="/website20-contact" element={<Website20Contact />} />
+        <Route path="/website20-about" element={<Website20About />} />
+        <Route path="/website20-projects" element={<Website20Projects />} />
+      </Routes>
+    </AnimatePresence>
+
   );
 }
 export default App;

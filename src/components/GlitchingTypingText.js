@@ -1,130 +1,96 @@
 import React, { useState, useEffect } from "react";
 
-const GlitchingTypingText = (props) => {
-    const {
-        children,
-        element: Element = "p",
-        className,
-        blinkingCaret = false,
-        nextCharProbability = 0.8,
-        typingDuration = 3000,
-        glitchProbability = 0.5,
-        potentialGlitchInterval = 250,
-        startDelay = 0,
-        glitchColor = "red",
-        disappearAfter = 0,
-        onComplete
-    } = props;
-
-    const isString = typeof children === "string";
-    const text = isString ? children : '';
-    const [renderedText, setRenderedText] = useState(isString ? "" : null);
+const GlitchingTypingText = ({
+    children,
+    element: Element = "p",
+    className,
+    blinkingCaret = false,
+    nextCharProbability = 0.8,
+    typingDuration = 3000,
+    glitchProbability = 0.5,
+    potentialGlitchInterval = 250,
+    startDelay = 0,
+    glitchColor = "red",
+    disappearAfter = 0,
+    onComplete
+}) => {
+    const text = typeof children === "string" ? children : "";
+    const [renderedText, setRenderedText] = useState("");
     const [sliceIndex, setSliceIndex] = useState(0);
-    const [startTyping, setStartTyping] = useState(false);
-    const [typingIntervalID, setTypingIntervalID] = useState(null);
-    const [glitchIntervalID, setGlitchIntervalID] = useState(null);
     const [textVisible, setTextVisible] = useState(true);
 
-
-    const possibleChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*?+";
-
-    const randomizeTextCharacter = (textArray) => {
-        const charToReplaceIndex = Math.floor(Math.random() * textArray.length);
-        const randomChar = possibleChars.charAt(Math.floor(Math.random() * possibleChars.length));
-
-        return textArray.map((char, index) => {
-            if (index === charToReplaceIndex) {
-                // Wrap the glitched character in a span with a different color
-                return <span key={index} style={{ color: glitchColor }}>{randomChar}</span>;
-            }
-            return <span key={index}>{char}</span>;
-        });
-    };
-
-    const typingInterval = Math.floor(typingDuration / (text?.length || 1));
-
+    // Start delay
     useEffect(() => {
-        if (!isString) {
-            setStartTyping(true);
-            return;
+        if (text) {
+            const delayTimer = setTimeout(() => {
+                setSliceIndex(1);
+            }, startDelay);
+
+            return () => clearTimeout(delayTimer);
         }
+    }, [startDelay, text]);
 
-        const delayTimer = setTimeout(() => {
-            setStartTyping(true);
-        }, startDelay);
-
-        return () => clearTimeout(delayTimer);
-    }, [startDelay, isString]);
-
+    // Typing and glitch effects
     useEffect(() => {
-        if (!startTyping || !isString) return;
+        if (!text) return;
 
-        const gID = setInterval(() => {
-            if (Math.random() > 1 - glitchProbability) {
-                setRenderedText(randomizeTextCharacter([...text]));
-            } else {
-                if (renderedText !== text) {
-                    setRenderedText([...text]);
-                }
-            }
-        }, potentialGlitchInterval);
-        setGlitchIntervalID(gID);
+        const typingInterval = Math.floor(typingDuration / text.length);
+        let tID;
 
-        const tID = setInterval(() => {
-            if (Math.random() > 1 - nextCharProbability) {
-                setSliceIndex((index) => index + 1);
+        tID = setInterval(() => {
+            if (Math.random() <= nextCharProbability) {
+                setSliceIndex((index) => Math.min(index + 1, text.length));
             }
         }, typingInterval);
-        setTypingIntervalID(tID);
 
         return () => {
-            clearInterval(gID);
             clearInterval(tID);
         };
+    }, [text, nextCharProbability, typingDuration]);
 
-    }, [startTyping, text, isString]);
-
+    // Render effect for glitches
     useEffect(() => {
-        if (!isString || sliceIndex >= text.length) {
-            clearInterval(typingIntervalID);
-            setTimeout(() => {
-                clearInterval(glitchIntervalID);
-                setRenderedText(text);
-            }, 3000);
-        }
-    }, [sliceIndex, typingIntervalID, glitchIntervalID, text, isString]);
+        if (!text || sliceIndex >= text.length) return;
 
+        let gID = setInterval(() => {
+            if (Math.random() <= glitchProbability) {
+                setRenderedText((currentText) => {
+                    let chars = currentText.split("");
+                    let index = Math.floor(Math.random() * chars.length);
+                    chars[index] = String.fromCharCode(33 + Math.random() * (94));
+                    return chars.join("");
+                });
+            }
+        }, potentialGlitchInterval);
+
+        return () => clearInterval(gID);
+    }, [sliceIndex, text, glitchProbability, potentialGlitchInterval]);
+
+    // Disappear and onComplete
     useEffect(() => {
-        // Separate useEffect for handling text visibility
-        if (!isString || sliceIndex >= text.length) {
-            clearInterval(typingIntervalID);
-            setTimeout(() => {
-                clearInterval(glitchIntervalID);
-                setRenderedText(text);
-
-                if (disappearAfter > 0) {
-                    setTimeout(() => setTextVisible(false), disappearAfter * 1000);
-                }
-            }, 3000);
+        if (sliceIndex >= text.length) {
+            if (disappearAfter > 0) {
+                setTimeout(() => setTextVisible(false), disappearAfter * 1000);
+            }
+            if (onComplete) onComplete();
         }
-    }, [sliceIndex, text, isString, disappearAfter]);
+    }, [sliceIndex, text.length, disappearAfter, onComplete]);
 
+    // To ensure the renderedText is updated correctly with the slicing
     useEffect(() => {
-        if (!isString || sliceIndex >= text.length) {
-            clearInterval(typingIntervalID);
-            setTimeout(() => {
-                clearInterval(glitchIntervalID);
-                setRenderedText(text);
-                if (onComplete) onComplete(); // Invoke the callback
-            }, 4000);
-        }
-    }, [sliceIndex, typingIntervalID, glitchIntervalID, text, isString, onComplete]);
+        setRenderedText(text.slice(0, sliceIndex));
+    }, [text, sliceIndex]);
 
-    const textClasses = `inline-block ${blinkingCaret ? 'blinking-class' : ''} ${className}`;
+    const renderTextWithGlitch = (textToRender) =>
+        textToRender.split("").map((char, idx) => {
+            return <span key={idx} style={Math.random() <= 0.1 ? { color: glitchColor } : {}}>{char}</span>;
+        });
+
+    const textClasses = `inline-block ${blinkingCaret ? "blinking-class" : ""} ${className || ""}`;
 
     return (
-        <Element className={textClasses} style={{ display: textVisible ? 'block' : 'none' }}>
-            {isString ? renderedText.slice(0, sliceIndex) : children}
+        <Element className={textClasses} style={{ display: textVisible ? "block" : "none" }}>
+            {renderTextWithGlitch(renderedText)}
         </Element>
     );
 };

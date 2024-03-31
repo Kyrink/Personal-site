@@ -1,31 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 const FallingLetters = ({ text, shouldStart }) => {
-    const [letters, setLetters] = useState([]);
-    const [animationStarted, setAnimationStarted] = useState(false);
+    const [isAnimationTriggered, setIsAnimationTriggered] = useState(false);
 
     useEffect(() => {
         if (shouldStart && text) {
-            setLetters(text.split(''));
-            setAnimationStarted(true);
+            setIsAnimationTriggered(true);
         }
-    }, [text, shouldStart]);
+    }, [shouldStart, text]);
+
+    // Use useMemo to only recompute the letters array when `text` changes
+    const letters = useMemo(() => text?.split('') || [], [text]);
+
+    // Pre-calculate animation delays to avoid recalculating on each render
+    const animationDelays = useMemo(() => letters.map(() => `${Math.random() * 4}s`), [letters]);
 
     return (
         <div className="flex justify-center items-center h-screen overflow-hidden">
-            {letters.map((letter, index) => (
-                <span
-                    key={index}
-                    className={`${letter.trim() !== '' && animationStarted ? 'animate-fallOff' : ''}`}
-                    style={{
-                        animationDelay: letter.trim() !== '' && animationStarted ? `${Math.random() * 4}s` : '0s',
-                        display: letter.trim() === '' ? 'inline-block' : 'inline',
-                        width: letter.trim() === '' ? '0.5em' : 'auto'
-                    }}
-                >
-                    {letter.trim() === '' ? '\u00A0' : letter}
-                </span>
-            ))}
+            {letters.map((letter, index) => {
+                const isSpace = letter.trim() === '';
+                const animateClass = isSpace || !isAnimationTriggered ? '' : 'animate-fallOff';
+                const style = {
+                    animationDelay: isAnimationTriggered ? animationDelays[index] : '0s',
+                    display: isSpace ? 'inline-block' : 'inline',
+                    width: isSpace ? '0.5em' : 'auto'
+                };
+                const displayLetter = isSpace ? '\u00A0' : letter;
+
+                return (
+                    <span key={index} className={animateClass} style={style}>
+                        {displayLetter}
+                    </span>
+                );
+            })}
         </div>
     );
 };

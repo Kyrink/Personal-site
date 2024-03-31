@@ -1,15 +1,17 @@
-import CircleLanguages from "../components/CircleLanguages";
-import Spline from '@splinetool/react-spline';
+import React, { Suspense, lazy } from 'react';
+const CircleLanguages = lazy(() => import("../components/CircleLanguages"));
+import SplineBackground from '../components/SplineBackground';
+import FloatingNav from '../components/FloatingNav';
 
-const Website20AboutMe = () => {
+const Website20About = () => {
   return (
-    <div className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
+    <main className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
       <span
         className="absolute top-[773.1px] left-[10.3px] font-thin [transform:_rotate(-90deg)] [transform-origin:0_0]"
         id="about-me-tag"
       >{`ABOUT ME & SKILLS`}</span>
       <section
-        className="absolute top-1/2 left-1/2 bg-gray box-border w-full h-full overflow-hidden text-left text-50xl text-white border-[1px] border-solid border-white"
+        className="absolute top-1/2 left-1/2 box-border w-full h-full text-left text-50xl border-[1px] border-solid border-white"
         style={{
           transform: 'translate(-50%, -50%)',
           top: '50%',
@@ -19,9 +21,11 @@ const Website20AboutMe = () => {
         }} // Centering the section
         id="rect"
       >
-        <Spline className=" z-0 absolute"
-          // style={{ pointerEvents: 'none' }} // This allows the mouse events to pass through the Spline component.
-          scene="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
+        <FloatingNav />
+        <Suspense fallback={<div>Loading...</div>}>
+          <SplineBackground sceneUrl="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
+        </Suspense>
+
         <section
           className="absolute top-1/4 left-[51%] w-1/2 h-full flex flex-col items-center justify-start gap-[40px] text-left text-lg text-white font-rhapsody"
           id="texts"
@@ -54,13 +58,15 @@ const Website20AboutMe = () => {
         <div
           className="absolute top-[10%] left-[5%] w-1/2 h-full flex flex-col items-start gap-4 text-left"        >
           <h1
-            className="m-0 z-2 absolute text-inherit text-lgx  font-inherit"
+            className="absolute m-0 left-[10%] z-2  text-inherit text-lgx  font-inherit"
             id="skill-languages"
           >SKILLS  & LANGUAGES</h1>
           <div className=" relative z-10000"
             style={{ cursor: 'pointer' }}
           >
-            <CircleLanguages />
+            <Suspense fallback={<div>Loading...</div>}>
+              <CircleLanguages />
+            </Suspense>
           </div>
           <div className="relative top-[40%] left-[10%] h-[145px] flex items-center justify-start gap-3" id="work">
             <h2 className="absolute transform -rotate-90 left-[-10px] top-1/2 -translate-x-full -translate-y-1/2 text-lg" id="work-header">
@@ -73,13 +79,10 @@ const Website20AboutMe = () => {
               focusing on quality and process optimization. Full Resume
             </span>
           </div>
-
         </div>
-
-
       </section>
-    </div>
+    </main>
   );
 };
 
-export default Website20AboutMe;
+export default Website20About;
