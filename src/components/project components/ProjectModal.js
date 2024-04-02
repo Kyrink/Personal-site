@@ -59,4 +59,6 @@ const ProjectModal = ({ projectName, projectDescription, demoLink, codeLink, ima
   );
 };
 
+
+
 export default ProjectModal;
