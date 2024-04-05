@@ -4,10 +4,17 @@ import SplineBackground from '../components/SplineBackground';
 import FloatingNav from '../components/FloatingNav';
 
 const Website20About = () => {
+
+  const navItems = [
+    { name: 'Home', link: '/' },
+    { name: 'About', link: 'website20-about' },
+    { name: 'Projects', link: '/website20-projects' },
+    { name: 'Contact', link: 'website20-contact' },
+  ];
   return (
     <main className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
       <span
-        className="absolute top-[773.1px] left-[10.3px] font-thin [transform:_rotate(-90deg)] [transform-origin:0_0]"
+        className="absolute top-[95%] left-[10.3px] font-thin [transform:_rotate(-90deg)] [transform-origin:0_0]"
         id="about-me-tag"
       >{`ABOUT ME & SKILLS`}</span>
       <section
@@ -21,7 +28,7 @@ const Website20About = () => {
         }} // Centering the section
         id="rect"
       >
-        <FloatingNav />
+        <FloatingNav navItems={navItems} />
         <Suspense fallback={<div>Loading...</div>}>
           <SplineBackground sceneUrl="https://prod.spline.design/n7DMIKLSN2tAAdfU/scene.splinecode" />
         </Suspense>

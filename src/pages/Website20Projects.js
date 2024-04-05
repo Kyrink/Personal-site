@@ -1,10 +1,16 @@
 import ProjectBar from "../components/project components/ProjectBar"
 import ProjectModal from "../components/project components/ProjectModal";
 import { useState } from 'react';
-import transition from "../transition";
 import FloatingNav from "../components/FloatingNav";
 
 const Website20Projects = () => {
+
+  const navItems = [
+    { name: 'Home', link: '/' },
+    { name: 'About', link: 'website20-about' },
+    { name: 'Projects', link: '/website20-projects' },
+    { name: 'Contact', link: 'website20-contact' },
+  ];
 
   const [currentProject, setCurrentProject] = useState({
     title: '',
@@ -48,9 +54,14 @@ const Website20Projects = () => {
     "/rectangle-9-2@2x.png",
   ];
   const MuseImageUrls = [
-    "/rectangle-7-1@2x.png",
-    "/rectangle-8-1@2x.png",
-    "/rectangle-9-1@2x.png",
+    "/muse/LandingPage.webp",
+    "/muse/InspireMe.webp",
+    "/muse/contentPage.webp",
+    "/muse/sign-up page.webp",
+    "/muse/map.webp",
+    "/muse/reviewsubpage.webp",
+    "/muse/Testimonials.webp",
+    "/muse/writereview.webp",
   ];
 
   const spotifyProjectDetails = {
@@ -59,6 +70,14 @@ const Website20Projects = () => {
     demoLink: 'https://spotify-clone-demo-link.com',
     codeLink: 'https://github.com/Kyrink/Spotify-Clone',
     imageUrls: SpotifyImageUrls,
+  };
+
+  const museProjectDetails = {
+    title: 'muse',
+    description: 'A solution to staying invisible to trackers and keeping your browsing data secure.',
+    demoLink: 'https://muse-demo-link.com',
+    codeLink: 'https://github.com/Kyrink/muse-React',
+    imageUrls: MuseImageUrls,
   };
 
 
@@ -80,10 +99,14 @@ const Website20Projects = () => {
           height: 'calc(100% - 5rem)'
         }}
         id="rect"
-      >        <div className="flex flex-row items-start justify-start py-0 px-8 box-border max-w-full">
-          <b className="relative tracking-[0.1em] px-5 py-5 leading-[234.52%] text-51xl uppercase inline-block mq450:text-3xl mq450:leading-[53px] lg:text-11xl lg:leading-[70px]">
+      >
+
+
+        <div className="flex flex-row items-start justify-start space-y-12 py-0 px-8 box-border max-w-full">
+          <FloatingNav navItems={navItems} />
+          <div className="relative tracking-[0.1em] px-5 py-5 text-51xl uppercase inline-block mq450:text-3xl mq450:leading-[53px] lg:text-11xl lg:leading-[70px]">
             Notable Projects
-          </b>
+          </div>
         </div>
         <div className=" flex flex-row  justify-start pb-5 px-[6%] box-border max-w-[580px] text-left text-[16px]">
           <div className=" flex-1 relative tracking-[0.1em] uppercase font-thin flex items-center max-w-full">
@@ -102,7 +125,12 @@ const Website20Projects = () => {
             description={spotifyProjectDetails.description}
             imageUrls={spotifyProjectDetails.imageUrls}
           />
-          <ProjectBar onClick={openModal} title="Muse" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={MuseImageUrls} />
+          <ProjectBar
+            onClick={() => openModal(museProjectDetails)}
+            title={museProjectDetails.title}
+            description={museProjectDetails.description}
+            imageUrls={museProjectDetails.imageUrls}
+          />
           <ProjectBar onClick={openModal} title="Snitch Privacy Extension" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={SnitchImageUrls} />
           <ProjectBar onClick={openModal} title="Sightgasm" description="A curated gallery of stunning photography built using Typescript, GSAP, and tailwind CSS" imageUrls={SightgasmImageUrls} />
           <ProjectBar onClick={openModal} title="LinkedOut" imageUrls={SightgasmImageUrls} />

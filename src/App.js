@@ -9,7 +9,6 @@ import Website20 from "./pages/Homepage";
 import Website20Contact from "./pages/Website20Contact";
 import Website20About from "./pages/Website20About";
 import Website20Projects from "./pages/Website20Projects";
-import Website20Home from "./pages/Website20Home";
 import { AnimatePresence } from "framer-motion";
 import transition from "./transition";
 

@@ -1,60 +1,57 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence, useScroll, useMotionValue } from "framer-motion";
-// Import Link from react-router-dom if routing is needed, otherwise remove it
-// import { Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const FloatingNav = ({ navItems = [], className = '' }) => {
-  const { scrollYProgress } = useScroll();
-  const [visible, setVisible] = useState(false);
+const FloatingNav = ({ navItems }) => {
+  const [isHovering, setIsHovering] = useState(false);
+  let timer;
 
-  useMotionValue(scrollYProgress, (current) => {
-    if (typeof current === "number") {
-      let direction = current - scrollYProgress.getPrevious();
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
 
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        setVisible(direction < 0);
-      }
-    }
-  });
-
-  // Simple className concatenation for demonstration; adjust as needed.
-  const baseClasses = "flex max-w-fit fixed top-10 inset-x-0 mx-auto border border-transparent dark:border-white/[0.2] rounded-full dark:bg-black bg-white shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] pr-2 pl-8 py-2 items-center justify-center space-x-4";
-  const linkClasses = "relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-neutral-300 hover:text-neutral-500";
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
+    <AnimatePresence>
+      <motion.nav
         initial={{
-          opacity: 1,
-          y: -100,
+          width: 50, // Start with a small width to form a circle (adjust as needed)
+          scale: 0.5,
+          opacity: 0,
+          borderRadius: '50%', // Make it circular initially
+          border: '2px solid red',
         }}
         animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
+          width: isHovering ? '100%' : 70, // Expand to full width on hover
+          scale: isHovering ? 1 : 0.5,
+          opacity: 1,
+          borderRadius: isHovering ? '25px' : '50%', // Smoothly transition to 25px corner radius on hover
+          border: isHovering ? 'none' : '2px solid red',
         }}
         transition={{
-          duration: 0.2,
+          duration: 0.3,
         }}
-        className={`${baseClasses} ${className}`}
+        className="flex max-w-fit fixed top-6 inset-x-0 mx-auto rounded-full dark:bg-white bg-black shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-8 py-3 items-center justify-center space-x-4"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
         {navItems.map((navItem, idx) => (
-          // Replace <Link> with <a> if not using react-router-dom
-          <a
-            key={`link=${idx}`}
+          <motion.a
+            key={`link-${idx}`}
             href={navItem.link}
-            className={linkClasses}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-orange hover:text-orange"
           >
             <span className="block sm:hidden">{navItem.icon}</span>
             <span className="hidden sm:block text-sm">{navItem.name}</span>
-          </a>
+          </motion.a>
         ))}
-        <button className="border text-sm font-medium relative border-neutral-200 dark:border-white/[0.2] text-black dark:text-white px-4 py-2 rounded-full">
-          <span>Login</span>
-          <span className="absolute inset-x-0 w-1/2 mx-auto -bottom-px bg-gradient-to-r from-transparent via-blue-500 to-transparent h-px" />
-        </button>
-      </motion.div>
+      </motion.nav>
+
     </AnimatePresence>
   );
 };

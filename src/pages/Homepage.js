@@ -62,7 +62,7 @@ const Homepage = () => {
     if (animationComplete.kyrin && animationComplete.engineer) {
       const timer = setTimeout(() => {
         setShowHomePage(true);
-      }, 4500); // Adjust time as needed
+      }, 5500); // Adjust time as needed
       return () => clearTimeout(timer);
     }
   }, [animationComplete]);
@@ -70,7 +70,7 @@ const Homepage = () => {
   return (
     <main className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white font-rhapsody">
       <span
-        className="absolute top-[773.1px] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
+        className="absolute top-[95%] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
         id="home-tag"
       >
         HOME
@@ -160,7 +160,9 @@ const Homepage = () => {
                   </span>
                 ))}
               </nav>
-              <Socials />
+              <div className="absolute bottom-[25%] left-[20%]">
+                <Socials />
+              </div>
             </section>
             <button
               onClick={resetAnimation}

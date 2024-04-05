@@ -2,13 +2,17 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Spline from '@splinetool/react-spline';
 import emailjs from 'emailjs-com';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
-import transition from "../transition";
-
+import Socials from "../components/Socials";
+import FloatingNav from "../components/FloatingNav";
 
 const Website20Contact = () => {
+
+  const navItems = [
+    { name: 'Home', link: '/' },
+    { name: 'About', link: 'website20-about' },
+    { name: 'Projects', link: '/website20-projects' },
+    { name: 'Contact', link: 'website20-contact' },
+  ];
 
   const [command, setCommand] = useState('');
 
@@ -161,8 +165,9 @@ const Website20Contact = () => {
         id="Contact-page"
       >
         <Modal isOpen={isModalVisible} message={modalMessage} status={emailStatus} onClose={() => setIsModalVisible(false)} />
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 mt-8 font-rhapsody">
-          <h2 className="text-white text-51xl font-bold p-4 ">Contact Me</h2>
+        <div className="absolute flex flex-row p-5 top-0 left-1/2 transform -translate-x-1/2 font-rhapsody">
+          <FloatingNav navItems={navItems} />
+          <h2 className="text-white text-51xl font-bold p-5 ">Contact Me</h2>
         </div>
 
         <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" />
@@ -228,24 +233,13 @@ const Website20Contact = () => {
             </div>
           </form>
         </h3>
-        <div
-          className="absolute top-[538px] left-[204px] flex flex-row items-start justify-start gap-[40px]"
-          id="socials"
-        >
-          <img
-            className="relative w-[57.6px] h-[57.6px]"
-            alt=""
-            src="/git.svg"
-          />
-          <img
-            className="relative w-[60px] h-[60px]"
-            alt=""
-            src="/-icon-linkedin.svg"
-          />
+        <div className="absolute bottom-[20%] left-[15%]">
+          <Socials />
         </div>
+
       </main>
       <h1
-        className="absolute top-[773.1px] left-[10.3px] font-rhapsody text-md font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
+        className="absolute top-[95%] left-[10.3px] font-rhapsody text-md font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
         id="contact-me-tag"
       >
         CONTACT ME
