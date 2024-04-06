@@ -41,7 +41,7 @@ const ProjectModal = ({ projectName, projectDescription, demoLink, codeLink, ima
             </div>
           </a>
         </div>
-        <div className="flex flex-row flex-wrap items-center justify-center gap-[20px] min-h-[320px] max-w-full">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-[20px] min-h-[320px] max-w-[1000px]">
           {
             (imageUrls || []).map((imageUrl, index) => (
               <img
