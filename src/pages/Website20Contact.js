@@ -222,6 +222,8 @@ const Website20Contact = () => {
 
           <form onSubmit={handleCommandSubmit} className="mt-4">
             <div className="flex items-center">
+              <label htmlFor="commandInput" className="sr-only">Enter your command</label>
+
               <span className="text-green-400">$</span>
               <input
                 type="text"

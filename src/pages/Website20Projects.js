@@ -49,6 +49,11 @@ const Website20Projects = () => {
     "/rectangle-8-3@2x.png",
     "/rectangle-9-3@2x.png",
   ];
+  const LinkedOutImageUrls = [
+    "/linkedOut/Homepage.webp",
+    "/linkedOut/Landing.webp",
+    "/linkedOut/messaging.webp",
+  ];
   const SnitchImageUrls = [
     "/rectangle-8-2@2x.png",
     "/rectangle-9-2@2x.png",
@@ -78,6 +83,13 @@ const Website20Projects = () => {
     demoLink: 'https://muse-demo-link.com',
     codeLink: 'https://github.com/Kyrink/muse-React',
     imageUrls: MuseImageUrls,
+  };
+  const LinkedOutProjectDetails = {
+    title: 'LinkedOut',
+    description: 'A solution to staying invisible to trackers and keeping your browsing data secure.',
+    demoLink: 'https://linkedout2-link.com',
+    codeLink: 'https://github.com/Kyrink/linkedOut2/tree/Rough',
+    imageUrls: LinkedOutImageUrls,
   };
 
 
@@ -131,9 +143,14 @@ const Website20Projects = () => {
             description={museProjectDetails.description}
             imageUrls={museProjectDetails.imageUrls}
           />
+          <ProjectBar
+            onClick={() => openModal(LinkedOutProjectDetails)}
+            title={LinkedOutProjectDetails.title}
+            description={LinkedOutProjectDetails.description}
+            imageUrls={LinkedOutProjectDetails.imageUrls}
+          />
           <ProjectBar onClick={openModal} title="Snitch Privacy Extension" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={SnitchImageUrls} />
           <ProjectBar onClick={openModal} title="Sightgasm" description="A curated gallery of stunning photography built using Typescript, GSAP, and tailwind CSS" imageUrls={SightgasmImageUrls} />
-          <ProjectBar onClick={openModal} title="LinkedOut" imageUrls={SightgasmImageUrls} />
           {isModalOpen && (
             <ProjectModal
               projectName={currentProject.title} // or appropriate property
