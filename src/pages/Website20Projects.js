@@ -85,13 +85,12 @@ const Website20Projects = () => {
     imageUrls: MuseImageUrls,
   };
   const LinkedOutProjectDetails = {
-    title: 'LinkedOut',
+    title: 'HuskyGram',
     description: 'A solution to staying invisible to trackers and keeping your browsing data secure.',
     demoLink: 'https://linkedout2-link.com',
     codeLink: 'https://github.com/Kyrink/linkedOut2/tree/Rough',
     imageUrls: LinkedOutImageUrls,
   };
-
 
   return (
     <main className="relative min-h-screen bg-gray w-full  text-left text-white font-rhapsody">
