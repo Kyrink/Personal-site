@@ -75,7 +75,7 @@ const Homepage = () => {
           <>
             <Spline scene="https://prod.spline.design/fVRkKrmo-sC6BD6S/scene.splinecode" />
 
-            <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-rhapsody font-thin text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl inline-block">
+            <div className="absolute top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-rhapsody font-thin text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-51xl inline-block">
               <CombinedEffect text="Kyrin Kalonji" onComplete={() => handleAnimationComplete('kyrin')} />
             </div>
 
