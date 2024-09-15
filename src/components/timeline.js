@@ -23,10 +23,8 @@ const Timeline = ({ elements }) => {
 
         return (
           <VerticalTimelineElement
-            key={element.id}
-            className={`vertical-timeline-element--work ${
-              index % 2 === 0 ? "left-element" : "right-element"
-            }`}
+            key={index}
+            className={`vertical-timeline-element--${element.type}`}
             contentClassName="custom-content"
             contentStyle={{
               background: "rgba(255, 255, 255, 0.05)",
@@ -67,9 +65,11 @@ const Timeline = ({ elements }) => {
               <h3 className="vertical-timeline-element-title">
                 {element.title}
               </h3>
-              <h4 className="vertical-timeline-element-subtitle">
+              <h4 className="text-md lg:text-4xl pt-1 text-orange vertical-timeline-element-subtitle">
                 {element.location}
               </h4>
+              <p className="custom-date lg:hidden">{element.date}</p>
+
               <p>{element.description}</p>
               {element.buttonText && (
                 <a href="#" className="button">

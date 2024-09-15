@@ -177,96 +177,120 @@ const Website20Contact = () => {
 
   return (
     <main className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white text-[20px] font-mono">
-      <Modal
-        isOpen={isModalVisible}
-        message={modalMessage}
-        status={emailStatus}
-        onClose={() => setIsModalVisible(false)}
-      />
-      <div className="absolute flex flex-row p-5 top-0 left-1/2 transform -translate-x-1/2 font-rhapsody">
-        <FloatingNav navItems={navItems} />
-        <h2 className="text-white text-51xl font-bold p-5 ">Contact Me</h2>
-      </div>
-
-      <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" />
-
-      <div className="absolute mb-5 top-[30%] left-[55%]  font-mono text-green-400 max-w-[600px] bg-black bg-opacity-50 p-4 rounded-md glass-effect">
-        <form onSubmit={handleSubmit} className="flex flex-col">
-          <span>{`$ Enter your ${stage}:`}</span>
-          <input
-            type="text"
-            value={input}
-            onChange={handleInputChange}
-            className="mt-2 p-2 bg-transparent text-white border-b-2 border-green-400 focus:outline-none"
-            autoFocus
-          />
-        </form>
-
-        {renderCommandInput()}
-
-        <div className="text-green-200 mt-4">
-          {name && <p>Name: {name}</p>}
-          {email && <p>Email: {email}</p>}
-          {subject && <p>Subject: {subject}</p>}
-          {message && <p>Message: {message}</p>}
-        </div>
-      </div>
-
-      <h3
-        className="m-0 absolute top-[30%] left-[10%] text-[20px] font-mono text-green-400 bg-black bg-opacity-50 p-4 rounded-md glass-effect animate-fadeIn"
-        id="contact-code"
+      <span
+        className="absolute top-[96%] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
+        id="home-tag"
       >
-        <p className="mb-4">
-          {"$ "}
-          <span className="text-white">Welcome to my portfolio terminal.</span>
-        </p>
-        <p className="mb-2">
-          {"$ "}
-          <span className="text-white">Type a command:</span>
-        </p>
-        <p className="mb-2">
-          {"$ "}
-          <span className="text-[#569CD6]">send_email</span>
-          <span className="text-white"> // to send an email</span>
-        </p>
-        <p className="mb-2">
-          {"$ "}
-          <span className="text-[#569CD6]">edit_name</span>
-          <span className="text-white"> // to edit name</span>
-        </p>
-        <p className="mb-2">
-          {"$ "}
-          <span className="text-[#569CD6]">edit_email</span>
-          <span className="text-white"> // to edit email</span>
-        </p>
-        <p className="mb-2">
-          {"$ "}
-          <span className="text-[#569CD6]">edit_subject</span>
-          <span className="text-white"> // to edit subject</span>
-        </p>
-        <p className="mb-2">
-          {"$ "}
-          <span className="text-[#569CD6]">edit_message</span>
-          <span className="text-white"> // to edit message</span>
-        </p>
+        contact
+      </span>
+      <section
+        className="absolute top-1/2 left-1/2 box-border overflow-y-scroll scrollbar-hide text-left text-white border-[1px] border-solid border-white
+           w-[calc(100%-1rem)] h-[calc(100%-1rem)] 
+           sm:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] 
+           md:w-[calc(100%-5rem)] md:h-[calc(100%-5rem)]"
+        style={{
+          transform: "translate(-50%, -50%)",
+          top: "50%",
+          left: "50%",
+        }} // Centering the section
+        id="rect"
+      >
+        <Modal
+          isOpen={isModalVisible}
+          message={modalMessage}
+          status={emailStatus}
+          onClose={() => setIsModalVisible(false)}
+        />
+        <div className="absolute flex flex-col items-center justify-center w-full p-5 top-0 font-rhapsody">
+          <FloatingNav navItems={navItems} />
+          <h1 className="text-white text-2xlx lg:text-51xl font-bold p-3 pt-5 text-center">
+            Contact Me
+          </h1>
+        </div>
 
-        <form onSubmit={handleCommandSubmit} className="mt-4">
-          <div className="flex items-center">
-            <span className="text-green-400">$</span>
-            <input
-              type="text"
-              value={command}
-              onChange={handleCommandInput}
-              className="flex-1 ml-2 p-2 bg-black bg-opacity-75 text-white border-b-2 border-green-400 focus:outline-none"
-              placeholder="Your command"
-            />
+        <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" />
+
+        <div className="absoluteflex flex-col flex-grow w-full">
+          <div className="absolute mb-5 top-[56%] lg:top-[30%] left-[3%] lg:left-[55%] font-mono text-green-400 max-w-[386px] lg:max-w-[600px] bg-black bg-opacity-50 p-4 rounded-md glass-effect">
+            <form onSubmit={handleSubmit} className="flex flex-col">
+              <span>{`$ Enter your ${stage}:`}</span>
+              <input
+                type="text"
+                value={input}
+                onChange={handleInputChange}
+                className="mt-2 p-2 bg-transparent text-white border-b-2 border-green-400 focus:outline-none"
+                autoFocus
+              />
+            </form>
+
+            {renderCommandInput()}
+
+            <div className="text-green-200 mt-4">
+              {name && <p>Name: {name}</p>}
+              {email && <p>Email: {email}</p>}
+              {subject && <p>Subject: {subject}</p>}
+              {message && <p>Message: {message}</p>}
+            </div>
           </div>
-        </form>
-      </h3>
+          <div className="absolute lg:bottom-[15%] left-[47%]">
+            <Socials />
+          </div>
+        </div>
 
-      <div className="absolute bottom-[20%] left-[15%]">
-        <Socials />
-      </div>
+        <h3
+          className="m-0 absolute top-[20%] lg:top-[30%] left-[3%] lg:left-[10%] text-[16px] lg:text-[20px] font-mono text-green-400 bg-black bg-opacity-50 p-4 rounded-md glass-effect animate-fadeIn"
+          id="contact-code"
+        >
+          <p className="mb-4">
+            {"$ "}
+            <span className="text-white">
+              Welcome to my portfolio terminal.
+            </span>
+          </p>
+          <p className="mb-2">
+            {"$ "}
+            <span className="text-white">Type a command:</span>
+          </p>
+          <p className="mb-2">
+            {"$ "}
+            <span className="text-[#569CD6]">send_email</span>
+            <span className="text-white"> //to send an email</span>
+          </p>
+          <p className="mb-2">
+            {"$ "}
+            <span className="text-[#569CD6]">edit_name</span>
+            <span className="text-white"> //to edit name</span>
+          </p>
+          <p className="mb-2">
+            {"$ "}
+            <span className="text-[#569CD6]">edit_email</span>
+            <span className="text-white"> //to edit email</span>
+          </p>
+          <p className="mb-2">
+            {"$ "}
+            <span className="text-[#569CD6]">edit_subject</span>
+            <span className="text-white"> //to edit subject</span>
+          </p>
+          <p className="mb-2">
+            {"$ "}
+            <span className="text-[#569CD6]">edit_message</span>
+            <span className="text-white"> //to edit message</span>
+          </p>
+
+          <form onSubmit={handleCommandSubmit} className="mt-4">
+            <div className="flex items-center">
+              <span className="text-green-400">$</span>
+              <input
+                type="text"
+                value={command}
+                onChange={handleCommandInput}
+                className="flex-1 ml-2 p-2 bg-black bg-opacity-75 text-white border-b-2 border-green-400 focus:outline-none"
+                placeholder="Your command"
+              />
+            </div>
+          </form>
+        </h3>
+      </section>
     </main>
   );
 };

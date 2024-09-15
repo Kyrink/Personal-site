@@ -1,37 +1,36 @@
-import ProjectBar from "../components/project components/ProjectBar"
+import ProjectBar from "../components/project components/ProjectBar";
 import ProjectModal from "../components/project components/ProjectModal";
-import { useState } from 'react';
+import { useState } from "react";
 import FloatingNav from "../components/FloatingNav";
 
 const Website20Projects = () => {
-
   const navItems = [
-    { name: 'Home', link: '/' },
-    { name: 'About', link: 'website20-about' },
-    { name: 'Projects', link: '/website20-projects' },
-    { name: 'Contact', link: 'website20-contact' },
+    { name: "Home", link: "/" },
+    { name: "About", link: "website20-about" },
+    { name: "Projects", link: "/website20-projects" },
+    { name: "Contact", link: "website20-contact" },
   ];
 
   const [currentProject, setCurrentProject] = useState({
-    title: '',
-    description: '',
-    demoLink: '',
-    codeLink: '',
-    imageUrls: []
+    title: "",
+    description: "",
+    demoLink: "",
+    codeLink: "",
+    imageUrls: [],
   });
 
   // State to control the visibility of the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   // Function to open the modal
   const openModal = (projectDetails) => {
-    document.body.style.overflow = 'hidden'; // Prevent scrolling
+    document.body.style.overflow = "hidden"; // Prevent scrolling
     setCurrentProject(projectDetails);
     setIsModalOpen(true);
   };
 
   // Function to close the modal
   const closeModal = () => {
-    document.body.style.overflowY = 'auto'; // Enable scrolling
+    document.body.style.overflowY = "auto"; // Enable scrolling
     setIsModalOpen(false);
   };
 
@@ -42,7 +41,7 @@ const Website20Projects = () => {
     "/rectangle-7@2x.png",
     "/rectangle-8@2x.png",
     "/rectangle-9@2x.png",
-    "/rectangle-7-11@2x.png"
+    "/rectangle-7-11@2x.png",
   ];
   const SightgasmImageUrls = [
     "/rectangle-7-2@2x.png",
@@ -54,10 +53,7 @@ const Website20Projects = () => {
     "/linkedOut/Landing.webp",
     "/linkedOut/messaging.webp",
   ];
-  const SnitchImageUrls = [
-    "/rectangle-8-2@2x.png",
-    "/rectangle-9-2@2x.png",
-  ];
+  const SnitchImageUrls = ["/rectangle-8-2@2x.png", "/rectangle-9-2@2x.png"];
   const MuseImageUrls = [
     "/muse/LandingPage.webp",
     "/muse/InspireMe.webp",
@@ -70,25 +66,28 @@ const Website20Projects = () => {
   ];
 
   const spotifyProjectDetails = {
-    title: 'Spotify Clone',
-    description: 'Developed a Spotify-like music streaming app using Next.js, React, and Tailwind CSS, featuring secure authentication and database interactions via Supabase and PostgreSQL. Integrated Stripe for subscription services, ensuring a dynamic and responsive user interface.',
-    demoLink: 'https://spotify-clone-demo-link.com',
-    codeLink: 'https://github.com/Kyrink/Spotify-Clone',
+    title: "Spotify Clone",
+    description:
+      "Developed a Spotify-like music streaming app using Next.js, React, and Tailwind CSS, featuring secure authentication and database interactions via Supabase and PostgreSQL. Integrated Stripe for subscription services, ensuring a dynamic and responsive user interface.",
+    demoLink: "https://spotify-clone-demo-link.com",
+    codeLink: "https://github.com/Kyrink/Spotify-Clone",
     imageUrls: SpotifyImageUrls,
   };
 
   const museProjectDetails = {
-    title: 'muse',
-    description: 'A solution to staying invisible to trackers and keeping your browsing data secure.',
-    demoLink: 'https://muse-demo-link.com',
-    codeLink: 'https://github.com/Kyrink/muse-React',
+    title: "muse",
+    description:
+      "A solution to staying invisible to trackers and keeping your browsing data secure.",
+    demoLink: "https://muse-demo-link.com",
+    codeLink: "https://github.com/Kyrink/muse-React",
     imageUrls: MuseImageUrls,
   };
   const LinkedOutProjectDetails = {
-    title: 'HuskyGram',
-    description: 'A solution to staying invisible to trackers and keeping your browsing data secure.',
-    demoLink: 'https://linkedout2-link.com',
-    codeLink: 'https://github.com/Kyrink/linkedOut2/tree/Rough',
+    title: "HuskyGram",
+    description:
+      "A solution to staying invisible to trackers and keeping your browsing data secure.",
+    demoLink: "https://linkedout2-link.com",
+    codeLink: "https://github.com/Kyrink/linkedOut2/tree/Rough",
     imageUrls: LinkedOutImageUrls,
   };
 
@@ -101,21 +100,20 @@ const Website20Projects = () => {
         PROJECTS
       </span>
       <section
-        className="scrollable-section absolute top-1/2 left-1/2 w-full h-full overflow-auto text-left text-50xl text-white border-[1px] border-solid border-white"
+        className="absolute top-1/2 left-1/2 bg-gray box-border overflow-y-scroll scrollbar-hide text-left text-xl text-white border-[1px] border-solid border-white
+           w-[calc(100%-1rem)] h-[calc(100%-1rem)] 
+           sm:w-[calc(100%-2rem)] sm:h-[calc(100%-2rem)] 
+           md:w-[calc(100%-5rem)] md:h-[calc(100%-5rem)]"
         style={{
-          transform: 'translate(-50%, -50%)',
-          top: '50%',
-          left: '50%',
-          width: 'calc(100% - 5rem)',
-          height: 'calc(100% - 5rem)'
-        }}
+          transform: "translate(-50%, -50%)",
+          top: "50%",
+          left: "50%",
+        }} // Centering the section
         id="rect"
       >
-
-
-        <div className="flex flex-row items-start justify-start space-y-12 py-0 px-8 box-border max-w-full">
+        <div className="flex flex-row items-start justify-start space-y-12 py-0 px-8 lg:px-12 box-border max-w-full">
           <FloatingNav navItems={navItems} />
-          <div className="relative tracking-[0.1em] px-5 py-5 text-51xl uppercase inline-block mq450:text-3xl mq450:leading-[53px] lg:text-11xl lg:leading-[70px]">
+          <div className="relative tracking-[0.1em] lg:px-9 py-5 text-2xlx lg:text-51xl uppercase inline-block mq450:text-3xl mq450:leading-[53px] lg:text-11xl lg:leading-[70px]">
             Notable Projects
           </div>
         </div>
@@ -148,8 +146,18 @@ const Website20Projects = () => {
             description={LinkedOutProjectDetails.description}
             imageUrls={LinkedOutProjectDetails.imageUrls}
           />
-          <ProjectBar onClick={openModal} title="Snitch Privacy Extension" description="A solution to staying invisible to trackers and keeping your browsing data secure." imageUrls={SnitchImageUrls} />
-          <ProjectBar onClick={openModal} title="Sightgasm" description="A curated gallery of stunning photography built using Typescript, GSAP, and tailwind CSS" imageUrls={SightgasmImageUrls} />
+          <ProjectBar
+            onClick={openModal}
+            title="Snitch Privacy Extension"
+            description="A solution to staying invisible to trackers and keeping your browsing data secure."
+            imageUrls={SnitchImageUrls}
+          />
+          <ProjectBar
+            onClick={openModal}
+            title="Sightgasm"
+            description="A curated gallery of stunning photography built using Typescript, GSAP, and tailwind CSS"
+            imageUrls={SightgasmImageUrls}
+          />
           {isModalOpen && (
             <ProjectModal
               projectName={currentProject.title} // or appropriate property
@@ -162,7 +170,6 @@ const Website20Projects = () => {
           )}
         </section>
       </section>
-
     </main>
   );
 };
