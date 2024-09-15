@@ -402,13 +402,5 @@ h3 {
   scrollbar-width: none; /* Firefox */
 }
 
-/* @responsive {
-  .text-responsive {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-  }
-  .text-responsive-lg {
-    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-  }
-} */
 
 

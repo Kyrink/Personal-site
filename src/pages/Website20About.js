@@ -137,7 +137,7 @@ const Website20About = () => {
             <h1 className="mt-16 z-2 text-inherit text-lgx font-inherit">
               WORK EXPERIENCE
             </h1>
-            <div className="w-full mt-8 h-[100vh] overflow-y-auto scrollbar-hide  pr-4">
+            <div className="w-full mt-8 h-[100vh] overflow-y-auto scrollbar-hide pr-4">
               <Timeline elements={timelineElements} />
             </div>
           </div>
