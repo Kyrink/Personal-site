@@ -1,20 +1,41 @@
 import React, { useEffect, useState, Suspense, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import {
+  faJava,
+  faPython,
+  faJs,
+  faReact,
+  faGithub,
+  faDocker,
+  faGoogle,
+  faAws,
+} from "@fortawesome/free-brands-svg-icons";
+import { faDatabase, faCode } from "@fortawesome/free-solid-svg-icons";
+
+// Add all icons to the library
+library.add(fab, fas, far);
 
 import Spline from "@splinetool/react-spline";
 import CombinedEffect from "../components/CombinedEffect";
 import GlitchingTypingText from "../components/GlitchingTypingText";
 import Socials from "../components/Socials";
 import SplineBackground from "../components/SplineBackground";
+import { PinContainer } from "../components/PinContainer";
+import FloatingNav from "../components/FloatingNav";
+import CircleLanguages from "../components/CircleLanguages";
 
 const Homepage = () => {
-  const navigate = useNavigate();
-  const handleNavigation = useCallback(
-    (route) => {
-      navigate(`/website20-${route}`);
-    },
-    [navigate]
-  );
+  const navItems = [
+    { name: "Home", link: "/" },
+    { name: "About", link: "website20-about" },
+    { name: "Projects", link: "/website20-projects" },
+    { name: "Contact", link: "website20-contact" },
+  ];
 
   const [animationComplete, setAnimationComplete] = useState({
     kyrin: false,
@@ -99,58 +120,147 @@ const Homepage = () => {
         ) : (
           // Homepage Content
           <>
-            <span
-              className="absolute right-4 bottom-[23%] md:bottom-[20%] md:right-[10%] p-[3%] pt-4 md:p-7  text-md text-justify font-thin max-w-[380px] sm:max-w-sm lg:max-w-lg fade-in glass-effect"
-              id="homepage-slogan"
-            >
-              <GlitchingTypingText>
-                Innovating at the Intersection of Art and Technology; I merge
-                creativity with code to build impactful digital experiences. My
-                work bridges aesthetics and functionality, shaping the future of
-                digital innovation. Welcome to a portfolio where imagination is
-                engineered to redefine the digital landscape.
-              </GlitchingTypingText>
-            </span>
             <section
-              className="absolute top-[8%] left-[10%] w-[460px] h-full overflow-hidden text-left text-51xl gap-[10%] text-white "
+              className="absolute inset-0 flex flex-col items-center justify-center text-white"
               id="ntns"
             >
-              <div>
-                <h1
-                  className="m-0 absolute text-3xlx font-inherit md:p-[3%] sm:text-base md:text-lg lg:text-xl"
-                  id="name"
-                >
-                  <GlitchingTypingText> Kyrin Kalonji</GlitchingTypingText>
-                </h1>
-                <h2
-                  className="m-0 absolute top-[8%] md:left-[30%] md:top-[12%] text-lg font-inherit inline-block text-orange"
-                  id="title"
-                  style={{ display: "block", visibility: "visible" }}
-                >
-                  <GlitchingTypingText startDelay={3000}>
-                    Software Engineer
-                  </GlitchingTypingText>
-                </h2>
-              </div>
-              <nav
-                className="absolute top-[18%] md:top[10%] md:top-[37%] flex flex-col items-start justify-start gap-[15px] hover:gap-10px p-[2%] text-right text-3xl text-white"
-                id="init-navigation"
-              >
-                {["home", "about", "projects", "contact"].map((item, index) => (
-                  <span
-                    key={item}
-                    className="relative font-thin cursor-pointer hover:text-orange hover:animate-distortAndGrow"
-                    onClick={() => handleNavigation(item)}
+              <FloatingNav navItems={navItems} />
+
+              <div className="grid grid-cols-11 grid-rows-11 gap-3 w-full h-full absolute inset-0 p-[3%]">
+                <div className="col-start-4 col-span-5 row-start-2 row-span-3 flex flex-col items-center justify-center glass-effect">
+                  <h1
+                    className="m-0 text-3xlx font-inherit sm:text-base md:text-lg lg:text-xl"
+                    id="name"
                   >
-                    <GlitchingTypingText startDelay={(index + 1) * 1000}>
-                      {item.toUpperCase().replace("-", " ")}
+                    <GlitchingTypingText>Kyrin Kalonji</GlitchingTypingText>
+                  </h1>
+                  <h2
+                    className=" text-lg font-inherit inline-block text-orange"
+                    id="title"
+                  >
+                    <GlitchingTypingText startDelay={3000}>
+                      Software Engineer
                     </GlitchingTypingText>
-                  </span>
-                ))}
-              </nav>
-              <div className="absolute bottom-[25%] left-[35%] md:left-[12%]">
-                <Socials />
+                  </h2>
+                </div>
+
+                <div className="col-start-5 col-span-2 row-start-7 row-span-4 flex items-center justify-center relative">
+                  <PinContainer
+                    title="I'm Based in"
+                    className="text-center text-white"
+                    containerClassName="z-50"
+                  >
+                    <h2 className="underline">Based In</h2>
+                    <h3 className="text-3xl">Portland, ME</h3>
+                    <img
+                      src="/ME.svg"
+                      alt="Placeholder"
+                      className="w-32 h-32 rounded-full mb-4 relative z-10"
+                    />
+                  </PinContainer>
+                </div>
+                <div className="col-start-7 col-span-5 row-start-8 row-span-4 glass-effect">
+                  <h2 className="text-center pt-4 underline">A Bit About Me</h2>
+                </div>
+                <div className="col-start-7 col-span-2 row-start-5 row-span-3 flex flex-col items-center text-center glass-effect">
+                  <h2 className="mt-4 underline">Reach Out</h2>
+                  <div className="mb-5 flex-grow flex items-center justify-center">
+                    <Socials />
+                  </div>
+                </div>
+                <div className="col-start-1 col-span-4 row-start-5 row-span-4 flex flex-col items-center text-center glass-effect">
+                  <h2 className="mt-4 underline">Key Skills</h2>
+                  <div className="grid grid-cols-5 gap-4 mt-4 font-mono">
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faJava}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">Java</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faPython}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">Python</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon icon={faJs} className="text-[2.5rem]" />
+                      <span className="text-[0.6rem] mt-1">JavaScript</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faReact}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">React</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faDatabase}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">Database</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faGithub}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">GitHub</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faDocker}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">Docker</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faGoogle}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">Google</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon icon={faAws} className="text-[2.5rem]" />
+                      <span className="text-[0.6rem] mt-1">AWS</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <FontAwesomeIcon
+                        icon={faCode}
+                        className="text-[2.5rem]"
+                      />
+                      <span className="text-[0.6rem] mt-1">Code</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-start-9 p-3 col-span-3 row-start-1 row-span-7 text-center glass-effect flex flex-col justify-between">
+                  <div>
+                    <h2 className="mt-4 underline">Notable Project</h2>
+                    <h3 className="mt-1 text-start text-3xl">SolaciumAI</h3>
+                    <p className="text-sm mt-1 text-start">
+                      Your AI-powered personal aid for all things related to
+                      immigration.
+                    </p>
+                    <img
+                      src="/muse/contentPage.webp"
+                      alt="SolaciumAI"
+                      className="w-[98%] h-auto rounded-md mt-2"
+                    />
+                  </div>
+                  <button
+                    onClick={() => navigate("/website20-projects")}
+                    className=" p-3 text-sm bg-black text-white rounded-md hover:bg-orange transition-colors duration-300"
+                  >
+                    View All Projects
+                  </button>
+                </div>
               </div>
+
+              <div className="absolute bottom-[25%] left-[35%] md:left-[12%]"></div>
             </section>
             <button
               onClick={resetAnimation}

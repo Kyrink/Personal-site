@@ -176,9 +176,9 @@ const Website20Contact = () => {
   };
 
   return (
-    <main className="relative min-h-screen bg-gray w-full overflow-hidden text-left text-white text-[20px] font-mono">
+    <main className="relative min-h-screen bg-gray w-full text-left text-white text-[20px] font-mono">
       <span
-        className="absolute top-[96%] left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
+        className="absolute top-[96%] hidden lg:block left-[10.3px] font-thin [transform:_rotate(-90.23deg)] [transform-origin:0_0]"
         id="home-tag"
       >
         contact
@@ -195,101 +195,107 @@ const Website20Contact = () => {
         }} // Centering the section
         id="rect"
       >
+        <div className="absolute inset-0 z-0">
+          <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" />
+        </div>
+
         <Modal
           isOpen={isModalVisible}
           message={modalMessage}
           status={emailStatus}
           onClose={() => setIsModalVisible(false)}
         />
-        <div className="absolute flex flex-col items-center justify-center w-full p-5 top-0 font-rhapsody">
+        <div className="relative z-10 flex flex-col items-center justify-center w-full p-5 pb-0 top-0 font-rhapsody">
           <FloatingNav navItems={navItems} />
-          <h1 className="text-white text-2xlx lg:text-51xl font-bold p-3 pt-5 text-center">
+          <h1 className="text-white text-2xlx lg:text-51xl font-bold p-3 pt-5 pb-0 text-center">
             Contact Me
           </h1>
         </div>
 
-        <Spline scene="https://prod.spline.design/4JtsRGNUvM01JPnp/scene.splinecode" />
+        <div className="relative z-10 flex flex-col w-full">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-stretch p-4 lg:p-8 space-y-8 lg:space-y-0 lg:space-x-8">
+            {/* Command Input Section */}
+            <div className="w-full lg:w-1/2 font-mono text-green-400 bg-black bg-opacity-50 p-4 rounded-md glass-effect">
+              <h3 className="text-[16px] lg:text-[20px] mb-4">
+                <p className="mb-4">
+                  {"$ "}
+                  <span className="text-white">
+                    Welcome to my portfolio terminal.
+                  </span>
+                </p>
+                <p className="mb-2">
+                  {"$ "}
+                  <span className="text-white">Type a command:</span>
+                </p>
+                <p className="mb-2">
+                  {"$ "}
+                  <span className="text-[#569CD6]">send_email</span>
+                  <span className="text-white"> //to send an email</span>
+                </p>
+                <p className="mb-2">
+                  {"$ "}
+                  <span className="text-[#569CD6]">edit_name</span>
+                  <span className="text-white"> //to edit name</span>
+                </p>
+                <p className="mb-2">
+                  {"$ "}
+                  <span className="text-[#569CD6]">edit_email</span>
+                  <span className="text-white"> //to edit email</span>
+                </p>
+                <p className="mb-2">
+                  {"$ "}
+                  <span className="text-[#569CD6]">edit_subject</span>
+                  <span className="text-white"> //to edit subject</span>
+                </p>
+                <p className="mb-2">
+                  {"$ "}
+                  <span className="text-[#569CD6]">edit_message</span>
+                  <span className="text-white"> //to edit message</span>
+                </p>
+              </h3>
 
-        <div className="absoluteflex flex-col flex-grow w-full">
-          <div className="absolute mb-5 top-[56%] lg:top-[30%] left-[3%] lg:left-[55%] font-mono text-green-400 max-w-[386px] lg:max-w-[600px] bg-black bg-opacity-50 p-4 rounded-md glass-effect">
-            <form onSubmit={handleSubmit} className="flex flex-col">
-              <span>{`$ Enter your ${stage}:`}</span>
-              <input
-                type="text"
-                value={input}
-                onChange={handleInputChange}
-                className="mt-2 p-2 bg-transparent text-white border-b-2 border-green-400 focus:outline-none"
-                autoFocus
-              />
-            </form>
-
-            {renderCommandInput()}
-
-            <div className="text-green-200 mt-4">
-              {name && <p>Name: {name}</p>}
-              {email && <p>Email: {email}</p>}
-              {subject && <p>Subject: {subject}</p>}
-              {message && <p>Message: {message}</p>}
+              <form onSubmit={handleCommandSubmit} className="mt-4">
+                <div className="flex items-center">
+                  <span className="text-green-400">$</span>
+                  <input
+                    type="text"
+                    value={command}
+                    onChange={handleCommandInput}
+                    className="flex-1 ml-2 p-2 bg-black bg-opacity-75 text-white border-b-2 border-green-400 focus:outline-none"
+                    placeholder="Your command"
+                  />
+                </div>
+              </form>
             </div>
-          </div>
-          <div className="absolute lg:bottom-[15%] left-[47%]">
-            <Socials />
+
+            {/* Form Input Section */}
+            <div className="w-full lg:w-1/2 font-mono text-green-400 bg-black bg-opacity-50 p-4 rounded-md glass-effect">
+              <form onSubmit={handleSubmit} className="flex flex-col">
+                <span>{`$ Enter your ${stage}:`}</span>
+                <input
+                  type="text"
+                  value={input}
+                  onChange={handleInputChange}
+                  className="mt-2 p-2 bg-transparent text-white border-b-2 border-green-400 focus:outline-none"
+                  autoFocus
+                />
+              </form>
+
+              {renderCommandInput()}
+
+              <div className="text-green-200 mt-4">
+                {name && <p>Name: {name}</p>}
+                {email && <p>Email: {email}</p>}
+                {subject && <p>Subject: {subject}</p>}
+                {message && <p>Message: {message}</p>}
+              </div>
+            </div>
           </div>
         </div>
 
-        <h3
-          className="m-0 absolute top-[20%] lg:top-[30%] left-[3%] lg:left-[10%] text-[16px] lg:text-[20px] font-mono text-green-400 bg-black bg-opacity-50 p-4 rounded-md glass-effect animate-fadeIn"
-          id="contact-code"
-        >
-          <p className="mb-4">
-            {"$ "}
-            <span className="text-white">
-              Welcome to my portfolio terminal.
-            </span>
-          </p>
-          <p className="mb-2">
-            {"$ "}
-            <span className="text-white">Type a command:</span>
-          </p>
-          <p className="mb-2">
-            {"$ "}
-            <span className="text-[#569CD6]">send_email</span>
-            <span className="text-white"> //to send an email</span>
-          </p>
-          <p className="mb-2">
-            {"$ "}
-            <span className="text-[#569CD6]">edit_name</span>
-            <span className="text-white"> //to edit name</span>
-          </p>
-          <p className="mb-2">
-            {"$ "}
-            <span className="text-[#569CD6]">edit_email</span>
-            <span className="text-white"> //to edit email</span>
-          </p>
-          <p className="mb-2">
-            {"$ "}
-            <span className="text-[#569CD6]">edit_subject</span>
-            <span className="text-white"> //to edit subject</span>
-          </p>
-          <p className="mb-2">
-            {"$ "}
-            <span className="text-[#569CD6]">edit_message</span>
-            <span className="text-white"> //to edit message</span>
-          </p>
-
-          <form onSubmit={handleCommandSubmit} className="mt-4">
-            <div className="flex items-center">
-              <span className="text-green-400">$</span>
-              <input
-                type="text"
-                value={command}
-                onChange={handleCommandInput}
-                className="flex-1 ml-2 p-2 bg-black bg-opacity-75 text-white border-b-2 border-green-400 focus:outline-none"
-                placeholder="Your command"
-              />
-            </div>
-          </form>
-        </h3>
+        <div className="relative z-10 flex justify-center items-center pl-20 mt-3 pb-8">
+          <Socials />
+        </div>
       </section>
     </main>
   );

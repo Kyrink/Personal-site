@@ -40,7 +40,7 @@ const Website20About = () => {
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-col h-full text-white font-rhapsody overflow-y-auto">
           <h1
-            className="mt-20 z-2 text-2xl md:text-lg font-inherit text-center"
+            className="mt-28 z-2 text-2xl md:text-lg font-inherit text-center"
             id="skill-languages"
           >
             SKILLS & LANGUAGES

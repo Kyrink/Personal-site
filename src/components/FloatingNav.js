@@ -25,6 +25,7 @@ const FloatingNav = ({ navItems }) => {
         }}
         animate={{
           width: isHovering ? "100%" : 70, // Expand to full width on hover
+          height: isHovering ? "fit-content" : 70,
           scale: isHovering ? 1 : 0.5,
           opacity: 1,
           borderRadius: isHovering ? "25px" : "50%", // Smoothly transition to 25px corner radius on hover
@@ -33,7 +34,7 @@ const FloatingNav = ({ navItems }) => {
         transition={{
           duration: 0.3,
         }}
-        className="flex max-w-fit fixed top-6 inset-x-0 mx-auto rounded-full dark:bg-white bg-black shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-8 py-3 items-center justify-center space-x-4"
+        className="flex max-w-fit flex-col lg:flex-row fixed top-4 right-4 lg:top-6 lg:inset-x-0 lg:mx-auto rounded-full dark:bg-white bg-black shadow-[0px_2px_3px_-1px_rgba(0,0,0,0.1),0px_1px_0px_0px_rgba(25,28,33,0.02),0px_0px_0px_1px_rgba(25,28,33,0.08)] z-[5000] px-4 lg:px-8 py-4 items-center justify-center space-y-5 lg:space-y-0"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
@@ -44,10 +45,10 @@ const FloatingNav = ({ navItems }) => {
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: isHovering ? 1 : 0, scale: isHovering ? 1 : 0 }}
             transition={{ duration: 0.3 }}
-            className="relative dark:text-neutral-50 items-center flex space-x-1 text-neutral-600 dark:hover:text-orange hover:text-orange no-underline"
+            className="relative dark:text-neutral-50 w-full sm:w-auto uppercase items-center flex space-x-1 text-neutral-600 dark:hover:text-orange hover:text-orange no-underline px-2.5 lg:px-0 lg:mx-2.5"
           >
             <span className="block sm:hidden">{navItem.icon}</span>
-            <span className="hidden sm:block text-sm">{navItem.name}</span>
+            <span className="sm:block text-md">{navItem.name}</span>
           </motion.a>
         ))}
       </motion.nav>
