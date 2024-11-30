@@ -30,6 +30,8 @@ import FloatingNav from "../components/FloatingNav";
 import CircleLanguages from "../components/CircleLanguages";
 
 const Homepage = () => {
+  const navigate = useNavigate();
+
   const navItems = [
     { name: "Home", link: "/" },
     { name: "About", link: "website20-about" },
@@ -253,7 +255,7 @@ const Homepage = () => {
                   </div>
                   <button
                     onClick={() => navigate("/website20-projects")}
-                    className=" p-3 text-sm bg-black text-white rounded-md hover:bg-orange transition-colors duration-300"
+                    className="p-3 text-sm bg-black text-white rounded-md hover:bg-orange transition-colors duration-300"
                   >
                     View All Projects
                   </button>

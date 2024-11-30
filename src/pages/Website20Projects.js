@@ -66,6 +66,7 @@ const Website20Projects = () => {
   ];
 
   const spotifyProjectDetails = {
+    id: "spotify",
     title: "Spotify Clone",
     description:
       "Developed a Spotify-like music streaming app using Next.js, React, and Tailwind CSS, featuring secure authentication and database interactions via Supabase and PostgreSQL. Integrated Stripe for subscription services, ensuring a dynamic and responsive user interface.",
@@ -75,6 +76,7 @@ const Website20Projects = () => {
   };
 
   const museProjectDetails = {
+    id: "muse",
     title: "muse",
     description:
       "A solution to staying invisible to trackers and keeping your browsing data secure.",
@@ -129,13 +131,13 @@ const Website20Projects = () => {
         </div>
         <section className="self-stretch flex flex-col items-start justify-start gap-[1px] max-w-full text-center text-18xl-5 text-white font-helvetica-neue">
           <ProjectBar
-            onClick={() => openModal(spotifyProjectDetails)}
+            projectId={spotifyProjectDetails.id}
             title={spotifyProjectDetails.title}
             description={spotifyProjectDetails.description}
             imageUrls={spotifyProjectDetails.imageUrls}
           />
           <ProjectBar
-            onClick={() => openModal(museProjectDetails)}
+            projectId={museProjectDetails.id}
             title={museProjectDetails.title}
             description={museProjectDetails.description}
             imageUrls={museProjectDetails.imageUrls}

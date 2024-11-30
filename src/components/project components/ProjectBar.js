@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const ProjectBar = ({ title, imageUrls, onClick, description, onclick }) => {
+const ProjectBar = ({ title, imageUrls, projectId, description }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
   const animationDuration = 0.5;
   const delayIncrement = 0.1;
   const totalImages = imageUrls.length;
@@ -40,18 +42,22 @@ const ProjectBar = ({ title, imageUrls, onClick, description, onclick }) => {
     letterSpacing: "0.15rem",
   };
 
+  const handleClick = () => {
+    navigate(`/website20-projects/${projectId}`);
+  };
+
   return (
     <div
       className={`group hover:bg-neutral-900 self-stretch box-border overflow-hidden flex flex-row items-center justify-between py-[15px] px-[5%] max-w-full text-center text-lg text-white font-helvetica-neue border-[0.5px] border-solid border-neutral-800 mq900:flex-wrap cursor-pointer ${
         isHovered ? "expandedHeight" : "normalHeight"
       }`}
-      onClick={onClick}
+      onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex flex-col items-start justify-start">
         <div
-          className="relative w-[350px] lg:w-[850px] top-6 lg:top-0 tracking-[0.1em] uppercase font-thin"
+          className="relative w-[350px] lg:w-[800px] top-6 lg:top-0 tracking-[0.1em] uppercase font-thin"
           style={titleStyle}
         >
           {title}

@@ -9,8 +9,8 @@ import Website20 from "./pages/Homepage";
 import Website20Contact from "./pages/Website20Contact";
 import Website20About from "./pages/Website20About";
 import Website20Projects from "./pages/Website20Projects";
+import ProjectDetails from "./components/project components/ProjectDetails";
 import { AnimatePresence } from "framer-motion";
-import transition from "./transition";
 
 function App() {
   const action = useNavigationType();
@@ -71,9 +71,12 @@ function App() {
         <Route path="/website20-contact" element={<Website20Contact />} />
         <Route path="/website20-about" element={<Website20About />} />
         <Route path="/website20-projects" element={<Website20Projects />} />
+        <Route
+          path="/website20-projects/:projectId"
+          element={<ProjectDetails />}
+        />
       </Routes>
     </AnimatePresence>
-
   );
 }
 export default App;
