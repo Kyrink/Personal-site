@@ -39,10 +39,7 @@ const Website20About = () => {
 
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-col h-full text-white font-rhapsody overflow-y-auto">
-          <h1
-            className="mt-28 z-2 text-2xl md:text-lg font-inherit text-center"
-            id="skill-languages"
-          >
+          <h1 className="mt-28 z-2 text-2xl md:text-lg font-inherit text-center">
             SKILLS & LANGUAGES
           </h1>
 
@@ -57,14 +54,9 @@ const Website20About = () => {
 
           <div className="h-24"></div>
 
-          <div
-            className="mt-36 md:mt-8 p-4 flex flex-col items-center justify-center glass-effect max-w-[380px] sm:max-w-sm lg:max-w-lg ml-[4%]"
-            id="work"
-          >
-            <h2 className="text-2xl md:text-lg mb-4" id="work-header">
-              ABOUT ME
-            </h2>
-            <span className="text-md text-justify" id="homepage-description">
+          <div className="mt-36 md:mt-8 p-4 flex flex-col items-center justify-center glass-effect max-w-[380px] sm:max-w-sm lg:max-w-lg ml-[4%]">
+            <h2 className="text-2xl md:text-lg mb-4">ABOUT ME</h2>
+            <span className="text-md text-justify">
               Software Engineer, combining creativity and technical skill to
               create engaging and aesthetically pleasing digital experiences. I
               blend my skills in software engineering with my passion for UI/UX
@@ -86,14 +78,8 @@ const Website20About = () => {
 
         {/* Desktop Layout */}
         <div className="hidden md:flex h-full text-white font-rhapsody">
-          <div
-            className="w-1/2 flex flex-col items-center justify-start text-left p-4 space-y-8"
-            id="textleft"
-          >
-            <h1
-              className="mt-16 z-2 text-inherit text-lgx font-inherit"
-              id="skill-languages"
-            >
+          <div className="w-1/2 flex flex-col items-center justify-start text-left p-4 space-y-8">
+            <h1 className="mt-16 z-2 text-inherit text-lgx font-inherit">
               SKILLS & LANGUAGES
             </h1>
 
@@ -106,20 +92,11 @@ const Website20About = () => {
               </Suspense>
             </div>
 
-            <div
-              className="relative mt-8 top-[25%] p-4 flex flex-col items-center justify-center glass-effect"
-              id="work"
-            >
-              <h2
-                className="absolute transform -rotate-90 top-1/2 left-6 -translate-x-full -translate-y-1/2 text-lg"
-                id="work-header"
-              >
+            <div className="relative mt-8 top-[25%] p-4 flex flex-col items-center justify-center glass-effect">
+              <h2 className="absolute transform -rotate-90 top-1/2 left-6 -translate-x-full -translate-y-1/2 text-lg">
                 ABOUT ME
               </h2>
-              <span
-                className="text-md text-justify max-w-lg sm:max-w-sm lg:max-w-[480px]"
-                id="homepage-description"
-              >
+              <span className="text-md text-justify max-w-lg sm:max-w-sm lg:max-w-[480px]">
                 Software Engineer, combining creativity and technical skill to
                 create engaging and aesthetically pleasing digital experiences.
                 I blend my skills in software engineering with my passion for
@@ -130,10 +107,7 @@ const Website20About = () => {
             </div>
           </div>
 
-          <div
-            className="w-1/2 flex flex-col items-center justify-start overflow-hidden text-right p-4"
-            id="textright"
-          >
+          <div className="w-1/2 flex flex-col items-center justify-start overflow-hidden text-right p-4">
             <h1 className="mt-16 z-2 text-inherit text-lgx font-inherit">
               WORK EXPERIENCE
             </h1>

@@ -24,10 +24,8 @@ import Spline from "@splinetool/react-spline";
 import CombinedEffect from "../components/CombinedEffect";
 import GlitchingTypingText from "../components/GlitchingTypingText";
 import Socials from "../components/Socials";
-import SplineBackground from "../components/SplineBackground";
 import { PinContainer } from "../components/PinContainer";
 import FloatingNav from "../components/FloatingNav";
-import CircleLanguages from "../components/CircleLanguages";
 
 const Homepage = () => {
   const navigate = useNavigate();

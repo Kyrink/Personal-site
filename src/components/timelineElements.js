@@ -1,10 +1,10 @@
 let timelineElements = [
   {
     id: 1,
-    title: "Associate Quality Assurance Engineer",
+    title: "Software Associate",
     location: "Gorham, Maine",
     description:
-      "Converting data to a graphical interface, through the use of HTML, CSS, and JavaScript, so that users can view and interact with that data.",
+      "Reduced non-conformance backlog and collaborated with teams to ensure quality standards.",
     buttonText: "View Harvey Website",
     date: "May 2023 - present",
     icon: "./work/harvey.jpeg",
@@ -14,7 +14,7 @@ let timelineElements = [
     title: "Teaching Assistant: Data Structures and Algorithms",
     location: "Portland, Maine",
     description:
-      "Assisted students in mastering data structures and algorithms by providing guidance on code improvement. Implemented automation scripts to benchmark code efficiency, graded assignments, and enhanced course material based on student feedback.",
+      "Supported students with coursework, graded assignments, and automated feedback processes.",
     buttonText: "USM Website",
     date: "April 2023 - May 2024",
     icon: "./work/usm.jpeg",
@@ -24,17 +24,17 @@ let timelineElements = [
     title: "Subject Matter Expert: Automation",
     location: "Westbrook, Maine",
     description:
-      "Specialized in optimizing and managing automated laboratory systems, ensuring efficient operation of diagnostic equipment. Collaborated with cross-functional teams to enhance automation processes, troubleshoot technical issues, and maintain industry compliance.",
-    buttonText: "View Abbott Website",
+      "Optimized automated systems and trained employees on operational workflows.",
+    buttonText: "Company Website",
     date: "April 2020 - March 2023",
     icon: "./work/abbott.jpeg",
   },
   {
     id: 4,
-    title: "Manufacturing Specialist II",
+    title: "CAP - Software Engineer Intern",
     location: "South Portland, Maine",
     description:
-      "Assessing the quality of specifications and technical design documents in order to ensure timely, relevant and meaningful feedback.",
+      "Participated in the Career Accelerator Program (CAP), gaining hands-on experience in embedded systems design, software development processes, and real-time debugging techniques. Collaborated with cross-functional teams to optimize software tools and contributed to the development and testing of embedded solutions.",
     buttonText: "Company Website",
     date: "Jan 2020 - Jan 2021",
     icon: "./work/ti.jpeg",
@@ -43,9 +43,8 @@ let timelineElements = [
     id: 5,
     title: "Shipping and Receiving Manager",
     location: "Portland, Maine",
-    description:
-      "Online Course in Magical Beasts and Wonders of the World - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque sagittis tellus, non ultrices lacus tempus vel.",
-    buttonText: "Course Certificate",
+    description: "",
+    buttonText: "Company Website",
     date: "September 2011",
     icon: "./work/readySeafood.jpeg",
   },
@@ -54,7 +53,7 @@ let timelineElements = [
     title: "University of Southern Maine",
     location: "Portland, Maine",
     description:
-      "College - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque sagittis tellus, non ultrices lacus tempus vel.",
+      "Studied computer science, specializing in programming, databases, and machine learning.",
     buttonText: "College Projects",
     date: "2019 - 2024",
     icon: "./work/usm.jpeg",
@@ -63,8 +62,7 @@ let timelineElements = [
     id: 7,
     title: "Deering High School",
     location: "Portland, Maine",
-    description:
-      "Highschool - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec scelerisque sagittis tellus, non ultrices lacus tempus vel.",
+    description: "",
     date: "2018",
     icon: "./work/usm.jpeg",
   },

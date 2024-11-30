@@ -1,5 +1,4 @@
 import ProjectBar from "../components/project components/ProjectBar";
-import ProjectModal from "../components/project components/ProjectModal";
 import { useState } from "react";
 import FloatingNav from "../components/FloatingNav";
 
