@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "https://kyrink.dev/static/css/main.549e5949.css",
+    "main.js": "https://kyrink.dev/static/js/main.4d7bb947.js",
+    "static/js/872.49966339.chunk.js": "https://kyrink.dev/static/js/872.49966339.chunk.js",
+    "static/js/227.39a46f1e.chunk.js": "https://kyrink.dev/static/js/227.39a46f1e.chunk.js",
+    "static/js/526.63cb9da3.chunk.js": "https://kyrink.dev/static/js/526.63cb9da3.chunk.js",
+    "static/js/232.d158d478.chunk.js": "https://kyrink.dev/static/js/232.d158d478.chunk.js",
+    "static/js/854.6ab77096.chunk.js": "https://kyrink.dev/static/js/854.6ab77096.chunk.js",
+    "static/js/237.83105786.chunk.js": "https://kyrink.dev/static/js/237.83105786.chunk.js",
+    "static/js/357.a206cabc.chunk.js": "https://kyrink.dev/static/js/357.a206cabc.chunk.js",
+    "static/js/753.7b1b5128.chunk.js": "https://kyrink.dev/static/js/753.7b1b5128.chunk.js",
+    "static/js/301.4be9287a.chunk.js": "https://kyrink.dev/static/js/301.4be9287a.chunk.js",
+    "static/media/Origamet Hamida.otf": "https://kyrink.dev/static/media/Origamet Hamida.e058fef2854c51598bf1.otf",
+    "static/media/astro.ttf": "https://kyrink.dev/static/media/astro.4c8a360a8003c23b977b.ttf",
+    "index.html": "https://kyrink.dev/index.html",
+    "main.549e5949.css.map": "https://kyrink.dev/static/css/main.549e5949.css.map",
+    "main.4d7bb947.js.map": "https://kyrink.dev/static/js/main.4d7bb947.js.map",
+    "872.49966339.chunk.js.map": "https://kyrink.dev/static/js/872.49966339.chunk.js.map",
+    "227.39a46f1e.chunk.js.map": "https://kyrink.dev/static/js/227.39a46f1e.chunk.js.map",
+    "526.63cb9da3.chunk.js.map": "https://kyrink.dev/static/js/526.63cb9da3.chunk.js.map",
+    "232.d158d478.chunk.js.map": "https://kyrink.dev/static/js/232.d158d478.chunk.js.map",
+    "854.6ab77096.chunk.js.map": "https://kyrink.dev/static/js/854.6ab77096.chunk.js.map",
+    "237.83105786.chunk.js.map": "https://kyrink.dev/static/js/237.83105786.chunk.js.map",
+    "357.a206cabc.chunk.js.map": "https://kyrink.dev/static/js/357.a206cabc.chunk.js.map",
+    "753.7b1b5128.chunk.js.map": "https://kyrink.dev/static/js/753.7b1b5128.chunk.js.map",
+    "301.4be9287a.chunk.js.map": "https://kyrink.dev/static/js/301.4be9287a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.549e5949.css",
+    "static/js/main.4d7bb947.js"
+  ]
+}
