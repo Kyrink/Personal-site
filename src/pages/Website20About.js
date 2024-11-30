@@ -7,10 +7,10 @@ import timelineElements from "../components/timelineElements";
 
 const Website20About = () => {
   const navItems = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "website20-about" },
-    { name: "Projects", link: "/website20-projects" },
-    { name: "Contact", link: "website20-contact" },
+    { name: "Home", link: "#/" },
+    { name: "About", link: "#/website20-about" },
+    { name: "Projects", link: "#/website20-projects" },
+    { name: "Contact", link: "#/website20-contact" },
   ];
 
   return (

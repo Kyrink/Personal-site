@@ -7,10 +7,10 @@ import FloatingNav from "../components/FloatingNav";
 
 const Website20Contact = () => {
   const navItems = [
-    { name: "Home", link: "/" },
-    { name: "About", link: "website20-about" },
-    { name: "Projects", link: "/website20-projects" },
-    { name: "Contact", link: "website20-contact" },
+    { name: "Home", link: "#/" },
+    { name: "About", link: "#/website20-about" },
+    { name: "Projects", link: "#/website20-projects" },
+    { name: "Contact", link: "#/website20-contact" },
   ];
 
   const [command, setCommand] = useState("");

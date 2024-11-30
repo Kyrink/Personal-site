@@ -43,7 +43,7 @@ const ProjectBar = ({ title, imageUrls, projectId, description }) => {
   };
 
   const handleClick = () => {
-    navigate(`/website20-projects/${projectId}`);
+    navigate(`#/website20-projects/${projectId}`);
   };
 
   return (
